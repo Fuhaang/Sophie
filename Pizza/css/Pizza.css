@@ -1,0 +1,321 @@
+html, body{
+ margin:0;
+ padding:0;
+ }
+body {
+  background-image: url("../images/fondGris.jpg");
+}
+header{
+	height: 50px;
+	margin-top: 10px;
+	margin-bottom: -60px;
+}
+
+.noMargeSection{
+	margin-left: -75px;
+	margin-right: -75px;
+}
+#pizzaPresentation{
+	background-image: url("../images/images/Accueil.jpg");
+	/* Image qui ne se répète pas et qui prend une taille suffisante pour être affichée entièrement
+	background-repeat: no-repeat;
+	background-size: contain;
+	*/
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 700px;
+	margin-top: 50px;
+	padding-top: 280px;
+	padding-bottom: 280px;
+}
+button{
+	border-radius: 15px;
+}
+#OU{
+	margin-left: 35px;
+	margin-top: 10px;
+	color :white;
+	font-weight: bold;
+}
+.pop{
+  margin: 75px auto;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border: none; /*on supprime le style par défaut*/
+}
+h1{
+	margin-top: 50px;
+	font-size: 37px;
+	color: white;
+}
+
+/*OFFRES LES PLUS POPULAIRES*/
+.popularOffer{
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 50px;
+	background-color: #1D1D1D;
+	height: 335px;
+}
+.irresistibleIMG{
+	background-image: url("../images/images/Offres 1.jpg");
+
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.extraIMG{
+	background-image: url("../images/images/Offres 2.jpg");
+
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.newIMG{
+	background-image: url("../images/images/Offres 3.jpg");
+
+	background-repeat: no-repeat;
+	background-position: left;
+}
+h2{
+	margin-top: -20px;
+	font-size: 37px;
+	color: white;
+	text-align: center;
+}
+p{
+	color: white;
+	text-align: center;
+}
+
+/*Telechargement application*/
+#DownloadApp{
+	background-image: url("../images/images/App fond.jpg");
+	/* Image qui ne se répète pas et qui prend une taille suffisante pour être affichée entièrement
+	background-repeat: no-repeat;
+	background-size: contain;
+	*/
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 50px;
+	height: 700px;
+	padding-top: 130px;
+	padding-bottom: 130px;
+}
+
+#DownloadAppStore{
+	width: 200px;
+	margin-top: 125px;
+}
+#DownloadGooglePlay{
+	width: 200px;
+	margin-top: 50px;
+}
+#imgPhone{
+	margin-top: -120px;
+	height: 300px;
+}
+
+/*Localisation*/
+ .Textcenter{
+	text-align: center;
+}
+
+#FindPizza{
+	background-image: url("../images/images/fond localisation.jpg");
+	/* Image qui ne se répète pas et qui prend une taille suffisante pour être affichée entièrement
+	background-repeat: no-repeat;
+	background-size: contain;
+	*/
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 700px;
+	padding-top: 130px;
+	padding-bottom: 130px;
+}
+
+h4{
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+#rectBlack{
+	background-color: black;
+	opacity: 0.7;
+	margin-top: 170px;
+	margin-left: 30px;
+}
+.findPizzaLine{
+  width: 100%;
+  height: 25px;
+  background-color: white;
+  border: none; /*on supprime le style par défaut*/
+  border-radius: 7px;
+}
+h5{
+	font-size: 16px;
+	color: white;
+}
+
+/*Footer*/
+footer{
+	background-color: black;
+	height: 100px;
+	text-align: center;
+}
+a, a:hover{
+	text-decoration: none;
+	color: white;
+}
+h6{
+	margin-right: 50px;
+	color: white;
+}
+/*--------------------*/
+/*Page LivraisonBefore*/
+/*--------------------*/
+
+#LivraisonBefore{
+	background-image: url("../images/images/fond livraison.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 700px;
+	margin-top: 50px;
+	padding-top: 130px;
+	padding-bottom: 130px;
+
+}
+#rectLivraison{
+	margin-top: 20px;
+	background-color: black;
+	opacity: 0.9;
+}
+#livraisonTitle{
+	margin-top: 20px;
+	background-color:white;
+	text-align: center;
+	font-weight: bold;
+}
+
+.h7{
+	margin-top: 15px;
+	text-align: center;
+	color: black;
+}
+.txtLivraisonBefore{
+	/* Changer taille, format, font... du texte dans le truc de livraison */
+	margin-top: 30px;
+}
+#now{
+	background-color: #3E3C3C;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+#after{
+	background-color: grey;
+	font-weight: bold;
+	text-align: center;
+}
+.txtINFO{
+	margin-left: 25px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	text-align: left;
+}
+#ville, #Nbrue, #rue{
+	margin-left: 25px;
+	border-radius: 10px;
+}
+.explain{
+	font-size: 10px;
+	margin: 0px;
+}
+.Check{
+	color: white;
+	font-size: 12px;
+}
+#validateAndBuy{
+	margin-top: 50px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	margin-left: 60px;
+	margin-right: 60px;
+	border-radius: 10px;
+}
+#bye{
+	text-align: center;
+}
+#margTopLeft{
+	margin-top: 20px;
+	margin-left: 100px;
+}
+.margePreviousNext{
+	margin-left: 100px;
+}
+
+
+
+
+
+
+
+
+
+/*-----------*/
+/*ChoicePizza*/
+/*-----------*/
+.onePizza{
+	margin-top: 30px;
+	width: 130px;
+}
+.choicePizzaPicture{
+	width: 130px;
+}
+.nameOfPizza{
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+}
+.descriptionOfPizza{
+	font-size: 10px;
+	background-color: black;
+	width: 130px;
+	min-height: 50px;
+}
+.onePizza a p{
+	font-size: 12px;
+	text-align: center;
+	text-decoration: underline;
+	margin-top: -15px;
+}
+.listbox{
+	width: 130px;
+	border-radius: 20px;
+}
+.listboxQuant{
+	border-radius: 20px;
+	height: 30px;
+	margin-left: 20px;
+}
+.pizzaPrice{
+	font-size: 20px;
+}
+.addThisPizza{
+	text-align: center;
+	background-color: black;
+	color: white;
+	border-color: black;
+}
+
+
+
+.panier{
+	background-color: black;
+	margin-top: 80px;
+	height: 600px;
+}
