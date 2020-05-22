@@ -32,6 +32,11 @@ header{
 button{
 	border-radius: 15px;
 }
+.headerstandard a button img{
+	height: 30px;
+	width: auto;
+}
+
 #OU{
 	margin-left: 35px;
 	margin-top: 10px;
@@ -164,6 +169,7 @@ footer{
 	background-color: black;
 	height: 100px;
 	text-align: center;
+	margin-top: 50px;
 }
 a, a:hover{
 	text-decoration: none;
@@ -193,6 +199,7 @@ h6{
 	background-color: black;
 	opacity: 0.9;
 }
+
 #livraisonTitle{
 	margin-top: 20px;
 	background-color:white;
@@ -226,7 +233,7 @@ h6{
 	margin-bottom: 0px;
 	text-align: left;
 }
-#ville, #Nbrue, #rue{
+#ville, #Nbrue, #rue, #userName, #telephone, #mail, #instr{
 	margin-left: 25px;
 	border-radius: 10px;
 }
@@ -257,14 +264,6 @@ h6{
 .margePreviousNext{
 	margin-left: 100px;
 }
-
-
-
-
-
-
-
-
 
 /*-----------*/
 /*ChoicePizza*/
@@ -330,7 +329,7 @@ h6{
 #panierPricePizza{
 	font-weight: bold;
 }
-#panierSizePizza, #panierBasePizza{
+#panierSizePizza, #panierBasePizza, #paniersizeTexMex, #paniersizeBoisson{
 	font-size: 12px;
 	font-style: italic;
 	text-align: left;
@@ -342,4 +341,75 @@ h6{
 }
 #panierTotalPrice{
 	text-align: right;
+}
+.next{
+	width: 80%;
+	background-color: white;
+	text-align: center;
+	margin-bottom: 5px;
+}
+.nextCenter{
+	text-align: center;
+}
+.lineNext{
+
+}
+.detailLivraison{
+	margin-top: -20px;
+	text-align: left;
+	font-size: 12px;
+}.lineNext .pop{
+	margin: 0px;
+	margin-bottom: 20px;
+}
+
+/*NavBar*/
+nav{
+	margin-top: 50px;
+	border-bottom: 1px solid black;
+}
+.navBar ol{
+	list-style-type: none;
+
+}
+.navBar{
+	display: inline-block;
+}
+.navBar a::after{
+	display: inline-block;
+    color: #000;
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}
+#bannierePizza{
+	height: 150px;
+  	background-image: url("../images/images/fond pizza.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.titleTypeChoice{
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	margin-top: 40px;
+}
+#banniereTexMex{
+	height: 150px;
+  	background-image: url("../images/images/fond tex mex.jpg");
+  	background-size: 2000px;
+	background-repeat: no-repeat;
+	background-position: left;
+}
+#banniereBoisson{
+	height: 150px;
+  	background-image: url("../images/images/fond boisson.jpg");
+  	background-size: 1300px;
+	background-repeat: no-repeat;
+	background-position: left 70% top 15%;
+}
+
+#centr{
+	margin-left: 10px;
 }

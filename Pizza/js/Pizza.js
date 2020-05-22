@@ -132,7 +132,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		var img = document.createElement("img");
 		img.className +="choicePizzaPicture";
 		img.setAttribute("width", "150px");
-		img.src = "./images/images/pizza/" + pizzasSupreme[i].picture;
+		img.src = "./images/images/pizza/" + allPizzas[j][i].picture;
 		pizza.appendChild(img);
 
 		//Create name of pizza
@@ -140,10 +140,10 @@ for( var j = 0; j < allPizzas.length; j++){
 	  	pName.className +="nameOfPizza";
 
 	  	//Debug
-	  	console.log(pizzasSupreme[i].name);
+	  	console.log(allPizzas[j][i].name);
 
 	  	//Add text in HTML
-	  	pName.innerHTML = pizzasSupreme[i].name;
+	  	pName.innerHTML = allPizzas[j][i].name;
 	  	//Add my h1 on this div pizza
 		pizza.appendChild(pName);
 
@@ -152,7 +152,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		pDescription.className +="descriptionOfPizza";
 
 		//Add text in HTML
-		pDescription.innerHTML = pizzasSupreme[i].ingredients;
+		pDescription.innerHTML = allPizzas[j][i].ingredients;
 		//Add my description on this div pizza
 		pizza.appendChild(pDescription);
 
@@ -254,7 +254,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		price.className +="pizzaPrice col-5";
 		price.id = j + "price" + i;
 		console.log(quantityPizza.value);
-		price.innerHTML = pizzasSupreme[i].price * quantityPizza.value + "€";//€
+		price.innerHTML = allPizzas[j][i].price * quantityPizza.value + "€";//€
 		divQuantity.appendChild(price);
 		pizza.appendChild(divQuantity);
 
@@ -373,3 +373,8 @@ function Add(j, i){
 		panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) + "€";
 	}
 }
+
+
+
+var pagePizza = document.getElementById("goPizzasPage");
+var input = document.createElement("input");

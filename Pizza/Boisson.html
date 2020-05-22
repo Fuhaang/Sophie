@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 	  <meta charset="utf-8">
-	  <title>Choose your pizza</title>
+	  <title>Choose your drink</title>
 
 	  <!-- CSS Chemin d'accès -->
 	  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -30,7 +30,7 @@
 				<nav class="col-12">
 						<ol>
 							<li class="navBar">
-								<a href="#">
+								<a href="ChoicePizza.html">
 									PIZZAS
 								</a>
 							</li>
@@ -40,7 +40,7 @@
 								</a>
 							</li>
 							<li class="navBar">
-								<a href="Boisson.html">
+								<a href="#">
 									BOISSONS
 								</a>
 							</li>
@@ -50,30 +50,15 @@
 
 
 
-
-
-
-			<div class="row" id="bannierePizza">
+			<div class="row" id="banniereBoisson">
 				<p class="col-12 titleTypeChoice">
-					PIZZAS
+					BOISSONS
 				</p>
 			</div>
 			<div class="row">
-				<div id="LesPizza" class="col-12 col-lg-10">
-					<div id="LesSupremes" class="row">
-						<h1 class="col-3">LES SUPREMES</h1>
-						<div class="col-9">
-							<hr class="pop">
-						</div>
-					</div>
-					<div id="LesIncontournables" class="row">
-						<h1 class="col-3">LES INCONTOURNABLES</h1>
-						<div class="col-9">
-							<hr class="pop">
-						</div>
-					</div>
-					<div id="LesVegans" class="row">
-						<h1 class="col-3">LES VEGANS</h1>
+				<div id="LesBoissons" class="col-12 col-lg-10">
+					<div class="row" id="LesBoisson">
+						<h1 class="col-3">BOISSONS</h1>
 						<div class="col-9">
 							<hr class="pop">
 						</div>
@@ -118,8 +103,6 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 		<footer>
 			<div class="container">
@@ -169,40 +152,7 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript">
-			var parameters = location.search.substring(1).split("&");
-			console.log(parameters);
-			console.log(parameters[0]);
 
-			var firstIndex0 = parameters[0].indexOf("=");
-			var lastIndex0 = parameters[0].length;
-			var ville = parameters[0].substring(firstIndex0 + 1, lastIndex0);
-
-			var firstIndex1 = parameters[1].indexOf("=");
-			var lastIndex1 = parameters[1].length;
-			var numRue = parameters[1].substring(firstIndex1 + 1, lastIndex1);
-
-			var firstIndex2 = parameters[2].indexOf("=");
-			var lastIndex2 = parameters[2].length;
-			var rue = parameters[2].substring(firstIndex2 + 1, lastIndex2);
-
-			for (var i = 0; i < rue.length; i++) {
-				if(rue[i] == '+'){
-					rue = rue.replace("+", " ");
-				}
-			}
-
-
-			console.log("!!numRue = " + numRue);
-			console.log("!!rue = " + rue);
-			console.log("!!ville = " + ville);
-
-
-			//Add data livraison
-			var livrable = document.getElementById("numRueRueVille");
-			livrable.innerHTML = numRue + " " + rue + " " + ville;
-		</script>
-
-	  	<script type="text/javascript" src="js/Pizza.js"></script>
+	  	<script type="text/javascript" src="js/Boisson.js"></script>
 	</body>
 </html>

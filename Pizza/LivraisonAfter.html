@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 	  <meta charset="utf-8">
-	  <title>Livraison</title>
+	  <title>Livraison commande</title>
 
 	  <!-- CSS Chemin d'accès -->
 	  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -25,70 +25,51 @@
 			</div>
 
 			<!--Bacground image & livraison-->
-			<form action="ChoicePizza.html" method="GET" class="row">
+			<form action="Paiement.html" method="GET" class="row">
 				<section id="LivraisonBefore" class="row">
-					<div class="col-lg-3 ">
+					<div class="col-lg-2 ">
 					</div>
-					<div id="rectLivraison" class="col-lg-5 col-sm-9">
+					<div id="rectLivraison" class="col-lg-6 col-sm-9">
 						<div class="row">
 							<div class="col-12" id="livraisonTitle">
 								<p class="h7">
 									LIVRAISON
 								</p>
 							</div>
+
 							<div class="col-12">
-								<p class="txtLivraisonBefore">
-									QUAND SOUHAITEZ-VOUS COMMANDER?
+								<p class="txtINFO">
+									NOM
 								</p>
 							</div>
-							<div class="col-1">
-							</div>
-							<div class="col-5" id="now">
-								<a href="#">
-									MAINTENANT
-								</a>
-							</div>
-							<div class="col-5" id="after">
-								<a href="#">
-									PLUS TARD
-								</a>
-							</div>
-							<div class="col-1">
+							<div class="col-12">
+								<input type="text" id="userName" name="userName" required minlength="4" maxlength="30" size="40">
 							</div>
 							<div class="col-12">
 								<p class="txtINFO">
-									VOTRE VILLE OU VOTRE CODE POSTAL
+									TELEPHONE
 								</p>
 							</div>
 							<div class="col-12">
-								<input type="text" id="ville" name="ville" required minlength="4" maxlength="30" size="40">
+								<input type="text" id="telephone" name="telephone" required minlength="10" maxlength="13" size="40">
 							</div>
 							<div class="col-12">
 								<p class="txtINFO">
-									NUMERO DE RUE
+									EMAIL
 								</p>
 							</div>
 							<div class="col-12">
-								<input type="text" id="Nbrue" name="Nbrue" required minlength="1" maxlength="30" size="40">
+								<input type="text" id="mail" name="mail" required minlength="4" maxlength="30" size="40">
 							</div>
 							<div class="col-12">
 								<p class="txtINFO">
-									RUE
+									INSTRUCTIONS DE LIVRAISON [ETAGE, DIGICODE, ETC.]
 								</p>
 							</div>
 							<div class="col-12">
-								<input type="text" id="rue" name="rue" required minlength="4" maxlength="30" size="40">
+								<input type="text" id="instr" name="instr" required minlength="4" maxlength="30" size="40">
 							</div>
-							<div class="col-12">
-								<p class="explain">
-									LES INSTRUCTIONS DE LIVRAISON (ETAGE, DIGICODE, ETC)
-								</p>
-							</div>
-							<div class="col-12">
-								<p class="explain">
-									POURRONT ETRE AJOUTEES LORS DE LA VALIDATION DE VOTRE COMMANDE
-								</p>
-							</div>
+
 							<div class="row"  id="margTopLeft">
 								<div class="col-1">
 								  	<input type="checkbox" id="scales" name="scales" checked/>
@@ -99,8 +80,18 @@
 									</p>
 								</div>
 							</div>
+							<div class="row"  id="centr">
+								<div class="col-1">
+								  	<input type="checkbox" id="newlester" name="newlester" checked/>
+								</div>
+								<div>
+								  	<p class="Check">
+										JE NE SOUHAITE PAS RECEVOIR LES OFFRES PIZZA TIME'S PAR SMS ET/OU PAR EMAIL
+									</p>
+								</div>
+							</div>
 							<div class="col-6" id="now" class="margePreviousNext">
-								<a href="Pizza.html">
+								<a href="ChoicePizza.html">
 									PRECEDENT
 								</a>
 							</div>
