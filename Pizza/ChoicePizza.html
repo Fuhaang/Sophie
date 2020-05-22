@@ -20,64 +20,13 @@
 					<button>LOGO</button>
 				</header>
 			</div>
-			
-
-
-
-
-
 			<div class="row">
-				<div id="LesPizza" class="col-10">
+				<div id="LesPizza" class="col-12 col-lg-10">
 					<div id="LesSupremes" class="row">
 						<h1 class="col-3">LES SUPREMES</h1>
 						<div class="col-9">
 							<hr class="pop">
 						</div>
-					<!--
-						<div class="onePizza col-2">
-							<div class="center-cropped">
-								<img class="choicePizzaPicture" src="./images/images/pizza/URBAN KEBAB.PNG">
-							</div>
-							<p class="nameOfPizza">
-								KEBAB
-							</p>
-							<p class="descriptionOfPizza">
-								Sauce tomate, mozarella, viande kebab, merguez, oignons, sauce blanche kebab
-							</p>
-							<a href="#">
-								<p>
-								Personnaliser
-								</p>
-							</a>
-							<select name="size" class="listbox">
-							    <option value="medium">Medium</option>
-							    <option value="small">Small</option>
-							    <option value="large">Large</option>
-							</select>
-							<select name="base" class="listbox">
-							    <option value="BaseTomate">Base sauce tomate</option>
-							    <option value="BaseCremeFraiche">Base crème fraîche</option>
-							</select>
-							<div class="row">
-								<select name="quantity" class="listboxQuant col-4">
-								    <option value="1">1</option>
-								    <option value="2">2</option>
-								    <option value="3">3</option>
-								    <option value="4">4</option>
-								    <option value="5">5</option>
-								</select>
-								<p class="pizzaPrice col-6">
-									13€
-								</p>
-							</div>
-							<div class="row">
-								<div class="col-2"></div>
-								<button class="addThisPizza col-8">
-									AJOUTER
-								</button>
-							</div>
-						</div>
-					-->
 					</div>
 					<div id="LesIncontournables" class="row">
 						<h1 class="col-3">LES INCONTOURNABLES</h1>
@@ -92,8 +41,19 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-2 panier">
+				<div class="col-12 col-lg-2 panier" id="Panier">
 					<p>MA COMMANDE</p>
+					<div id="PanierItems">
+					</div>
+					<div class="row" id="PanierTotal">
+						<p class="col-6" id="panierTotalWord">
+							TOTAL
+						</p>
+						<p class="col-6" id="panierTotalPrice">
+							0€
+						</p>
+					</div>
+					
 				</div>
 			</div>
 
@@ -109,7 +69,6 @@
 
 
 		</div>
-		<!--
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -158,7 +117,6 @@
 				</div>
 			</div>
 		</footer>
-	-->
 	  	<script type="text/javascript" src="js/Pizza.js"></script>
 	</body>
 </html>

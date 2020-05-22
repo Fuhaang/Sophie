@@ -317,5 +317,29 @@ h6{
 .panier{
 	background-color: black;
 	margin-top: 80px;
-	height: 600px;
+	height: 100%;
+	opacity: 0.8;
+}
+#panierNbrPizza{
+	text-align: center;
+}
+#panierNamePizza{
+	text-align: left;
+	font-weight: bold;
+}
+#panierPricePizza{
+	font-weight: bold;
+}
+#panierSizePizza, #panierBasePizza{
+	font-size: 12px;
+	font-style: italic;
+	text-align: left;
+	margin-top: -20px;
+}
+#panierTotalWord, #panierTotalPrice{
+	font-size: 25px;
+	font-weight: bold;
+}
+#panierTotalPrice{
+	text-align: right;
 }

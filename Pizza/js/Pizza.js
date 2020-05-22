@@ -193,16 +193,17 @@ for( var j = 0; j < allPizzas.length; j++){
 		basePizza.name ="base";
 		basePizza.className +="listbox";
 		basePizza.id = j + "base" + i;
-		//Option base tomate
-		var optionTomate = document.createElement("option");
-		optionTomate.setAttribute("value", "BaseTomate");
-		optionTomate.innerHTML = "Bause sauce tomate";
-		basePizza.appendChild(optionTomate);
+		basePizza.setAttribute("onchange", "changeBase(" + j +", " + i + ")")
 		//Option base creme fraiche
 		var optionCremeFraiche = document.createElement("option");
 		optionCremeFraiche.setAttribute("value", "BaseCremeFraiche");
-		optionCremeFraiche.innerHTML = "Bause crème fraîche";
+		optionCremeFraiche.innerHTML = "Base crème fraîche";
 		basePizza.appendChild(optionCremeFraiche);
+		//Option base tomate
+		var optionTomate = document.createElement("option");
+		optionTomate.setAttribute("value", "BaseTomate");
+		optionTomate.innerHTML = "Base sauce tomate";
+		basePizza.appendChild(optionTomate);
 		//AddThisListBloc
 		pizza.appendChild(basePizza);
 
@@ -213,7 +214,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		var quantityPizza = document.createElement("select");
 		quantityPizza.name="quantity";
 		quantityPizza.id= j + "quantity" + i;
-		quantityPizza.className +="listboxQuant col-4";
+		quantityPizza.className +="listboxQuant col-5";
 		quantityPizza.setAttribute("onchange", "changePrice(" + j +", " + i + ")")
 		//Option number 0
 		var option0 = document.createElement("option");
@@ -250,10 +251,10 @@ for( var j = 0; j < allPizzas.length; j++){
 
 		/*-------PRICE-------*/
 		var price = document.createElement("p");
-		price.className +="pizzaPrice col-6";
+		price.className +="pizzaPrice col-5";
 		price.id = j + "price" + i;
 		console.log(quantityPizza.value);
-		price.innerHTML = pizzasSupreme[i].price * quantityPizza.value + "€";
+		price.innerHTML = pizzasSupreme[i].price * quantityPizza.value + "€";//€
 		divQuantity.appendChild(price);
 		pizza.appendChild(divQuantity);
 
@@ -266,6 +267,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		buttonAjouter.className +="addThisPizza col-8";
 		buttonAjouter.id = j + "addThisPizza" + i;
 		buttonAjouter.innerHTML = "AJOUTER";
+		buttonAjouter.setAttribute("onclick", "Add(" + j +", " + i + ")");
 		divRowAjouter.appendChild(divColBeforeAjouter);
 		divRowAjouter.appendChild(buttonAjouter);
 		pizza.appendChild(divRowAjouter);
@@ -278,8 +280,96 @@ for( var j = 0; j < allPizzas.length; j++){
 	}
 }
 
+
+
 //EVENT CHANGE NUMBER OF PIZZA (CHANGE PRICE)
 function changePrice(j, i){
 	var nbr = document.getElementById(j + "quantity" + i).value;
-	document.getElementById(j + "price" + i).innerHTML = allPizzas[j][i].price * nbr + "€";
+	document.getElementById(j + "price" + i).innerHTML = allPizzas[j][i].price * nbr + "€"; //€
+}
+//EVENT CHANGE BASE OF PIZZA
+function changeBase(j, i){
+	var base = document.getElementById(j + "base" + i).value;
+	console.log(base);
+}
+
+
+
+function Add(j, i){
+	if(document.getElementById(j + "quantity" + i).value != 0){
+
+		var commande = document.getElementById("PanierItems");
+
+
+		var div1 = document.createElement("div");
+		div1.className += "row";
+
+		var pNbrPizza = document.createElement("p");
+		pNbrPizza.id = "panierNbrPizza";
+		pNbrPizza.className += "col-2";
+		//add quantity
+		pNbrPizza.innerHTML = document.getElementById(j + "quantity" + i).value + "x";
+
+		var pNamePizza = document.createElement("p");
+		pNamePizza.id = "panierNamePizza";
+		pNamePizza.className += "col-7";
+		//add name
+		pNamePizza.innerHTML = allPizzas[j][i].name;
+
+		var pPricePizza = document.createElement("p");
+		pPricePizza.id = "panierPricePizza";
+		//add price
+		pPricePizza.innerHTML = document.getElementById(j + "quantity" + i).value * allPizzas[j][i].price + "€";//€
+
+
+		div1.appendChild(pNbrPizza);
+		div1.appendChild(pNamePizza);
+		div1.appendChild(pPricePizza);
+		commande.appendChild(div1);
+
+
+		var div2 = document.createElement("div");
+		div2.className +="row";
+		var div2Before = document.createElement("div");
+		div2Before.className +="col-2";
+		var pSizePizza = document.createElement("p");
+		pSizePizza.id = "panierSizePizza";
+		pSizePizza.className += "col-10";
+		//add size
+		pSizePizza.innerHTML = document.getElementById(j + "size" + i).value;
+		
+		div2.appendChild(div2Before);
+		div2.appendChild(pSizePizza);
+		commande.appendChild(div2);
+
+
+		var div3 = document.createElement("div");
+		div3.className +="row";
+		var div3Before = document.createElement("div");
+		div3Before.className +="col-2";
+		var pBasePizza = document.createElement("p");
+		pBasePizza.id = "panierBasePizza";
+		pBasePizza.className += "col-10";
+		//add base
+		pBasePizza.innerHTML = document.getElementById(j + "base" + i).value;
+		
+		div3.appendChild(div3Before);
+		div3.appendChild(pBasePizza);
+		commande.appendChild(div3);
+
+
+		var totalPanier = document.getElementById("PanierTotal");
+
+		var pTotalWord = document.createElement("p");
+		pTotalWord.className +="col-6";
+		pTotalWord.id = "panierTotalWord";
+		pTotalWord.innerHTML = "TOTAL";
+
+		var pTotalPrice = document.createElement("p");
+		pTotalPrice.className +="col-6";
+		pTotalPrice.id = "panierTotalPrice";
+		pTotalPrice.innerHTML += pPricePizza.innerHTML;
+
+		panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) + "€";
+	}
 }
