@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<!-- Contenu -->
-		<div class="container">
+		<div class="container-fluid">
 			<!--Header with logo -->
 			<div class="row">
 				<div class="col-5">
@@ -30,19 +30,31 @@
 				<nav class="col-12">
 						<ol>
 							<li class="navBar">
-								<a href="ChoicePizza.html">
-									PIZZAS
-								</a>
+								<form action="ChoicePizza.html" method="GET">
+									<input type="hidden" id="pville" name="ville">
+									<input type="hidden" id="pNbrue" name="Nbrue">
+									<input type="hidden" id="prue" name="rue">
+								  	<input type="hidden" id="pscales" name="scales"/>
+									<input type="submit" value="PIZZAS">
+								</form>
 							</li>
 							<li class="navBar">
-								<a href="#">
-									TEX-MEX
-								</a>
+								<form action="TexMex.html" method="GET">
+									<input type="hidden" id="tville" name="ville">
+									<input type="hidden" id="tNbrue" name="Nbrue">
+									<input type="hidden" id="true" name="rue">
+								  	<input type="hidden" id="tscales" name="scales"/>
+									<input type="submit" value="TEX-MEX">
+								</form>
 							</li>
 							<li class="navBar">
-								<a href="Boisson.html">
-									BOISSONS
-								</a>
+								<form action="Boisson.html" method="GET">
+									<input type="hidden" id="bville" name="ville">
+									<input type="hidden" id="bNbrue" name="Nbrue">
+									<input type="hidden" id="brue" name="rue">
+								  	<input type="hidden" id="bscales" name="scales"/>
+									<input type="submit" value="BOISSONS">
+								</form>
 							</li>
 						</ol>
 				</nav>
@@ -50,7 +62,7 @@
 
 
 
-			<div class="row" id="banniereTexMex">
+			<div class="row backgroundImageFull" id="banniereTexMex">
 				<p class="col-12 titleTypeChoice">
 					TEX-MEX
 				</p>
@@ -79,11 +91,13 @@
 
 					<div class="row">
 						<div class="col-12 nextCenter">
-							<a href="LivraisonAfter.html">
-								<button class="next">
-									SUIVANT
-								</button>
-							</a>
+								<form action="LivraisonAfter.html" method="GET">
+									<input type="hidden" id="lville" name="ville">
+									<input type="hidden" id="lNbrue" name="Nbrue">
+									<input type="hidden" id="lrue" name="rue">
+								  	<input type="hidden" id="lscales" name="scales"/>
+									<input type="submit" value="SUIVANT" class="next">
+								</form>
 						</div>
 						<div class="col-12 lineNext">
 							<hr class="pop">
@@ -105,7 +119,7 @@
 			</div>
 		</div>
 		<footer>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-2"
 						<a href="">
@@ -153,6 +167,7 @@
 			</div>
 		</footer>
 
+	  	<script type="text/javascript" src="js/data.js"></script>
 	  	<script type="text/javascript" src="js/TexMex.js"></script>
 	</body>
 </html>

@@ -10,12 +10,10 @@
 	</head>
 	<body>
 		<!-- Contenu -->
-		<div class="container">
+		<div class="container-fluid">
 			<!--Header with logo -->
 			<div class="row">
-				<div class="col-5">
-				</div>
-				<header class="headerstandard">
+				<header class="headerstandard col-12">
 					<a href="Pizza.html">
 						<button>
 							<img src="images/images/logo-pizza-times.png">
@@ -26,10 +24,10 @@
 
 			<!--Bacground image & livraison-->
 			<form action="ChoicePizza.html" method="GET" class="row">
-				<section id="LivraisonBefore" class="row">
-					<div class="col-lg-3 ">
+				<section id="LivraisonBefore" class="row backgroundImageFull">
+					<div class="col-lg-4">
 					</div>
-					<div id="rectLivraison" class="col-lg-5 col-sm-9">
+					<div id="rectLivraison" class="col-lg-4 col-sm-9">
 						<div class="row">
 							<div class="col-12" id="livraisonTitle">
 								<p class="h7">
@@ -41,19 +39,15 @@
 									QUAND SOUHAITEZ-VOUS COMMANDER?
 								</p>
 							</div>
-							<div class="col-1">
-							</div>
-							<div class="col-5" id="now">
-								<a href="#">
+							<div class="col-6" id="now">
+								<a href="#" id="nowRec">
 									MAINTENANT
 								</a>
 							</div>
-							<div class="col-5" id="after">
-								<a href="#">
+							<div class="col-6" id="after">
+								<a href="#" id="afterRec">
 									PLUS TARD
 								</a>
-							</div>
-							<div class="col-1">
 							</div>
 							<div class="col-12">
 								<p class="txtINFO">
@@ -61,7 +55,7 @@
 								</p>
 							</div>
 							<div class="col-12">
-								<input type="text" id="ville" name="ville" required minlength="4" maxlength="30" size="40">
+								<input type="text" id="ville" name="ville" required minlength="4" maxlength="30" size="30">
 							</div>
 							<div class="col-12">
 								<p class="txtINFO">
@@ -69,7 +63,7 @@
 								</p>
 							</div>
 							<div class="col-12">
-								<input type="text" id="Nbrue" name="Nbrue" required minlength="1" maxlength="30" size="40">
+								<input type="text" id="Nbrue" name="Nbrue" required minlength="1" maxlength="30" size="30">
 							</div>
 							<div class="col-12">
 								<p class="txtINFO">
@@ -77,7 +71,7 @@
 								</p>
 							</div>
 							<div class="col-12">
-								<input type="text" id="rue" name="rue" required minlength="4" maxlength="30" size="40">
+								<input type="text" id="rue" name="rue" required minlength="4" maxlength="30" size="30">
 							</div>
 							<div class="col-12">
 								<p class="explain">
@@ -113,7 +107,7 @@
 			</form>
 		</div>
 		<footer>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-2"
 						<a href="">

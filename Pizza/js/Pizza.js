@@ -114,14 +114,10 @@ var allCategoriesPizza = [supremes, incontournables, vegans];
 for( var j = 0; j < allPizzas.length; j++){
 
 	for (var i = 0; i < allPizzas[j].length; i++) {
-		if(i%4 == 0 && i != 0){
-			var newLine = document.createElement("div");
-			newLine.className +="col-lg-4 col-0";
-			allCategoriesPizza[j].appendChild(newLine);
-		}
+
 		//Create div for one pizza
 		var pizza = document.createElement("div");
-		pizza.className +="onePizza col-lg-2 col-6"
+		pizza.className +="onePizza col-lg-3 col-6"
 		// Attribut style class id ...
 		//setAttributes(pizza, {"style": "margin-top: 30px; width: 150px; background-color: red;"});
 		/*pizza.setAttribute("style", "margin-top: 300px;");
@@ -130,17 +126,15 @@ for( var j = 0; j < allPizzas.length; j++){
 
 		//Create balise img and add source
 		var img = document.createElement("img");
-		img.className +="choicePizzaPicture";
 		img.setAttribute("width", "150px");
+		img.setAttribute("height", "100px");
 		img.src = "./images/images/pizza/" + allPizzas[j][i].picture;
 		pizza.appendChild(img);
+
 
 		//Create name of pizza
 	  	var pName = document.createElement("p");
 	  	pName.className +="nameOfPizza";
-
-	  	//Debug
-	  	console.log(allPizzas[j][i].name);
 
 	  	//Add text in HTML
 	  	pName.innerHTML = allPizzas[j][i].name;
@@ -159,6 +153,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		//Add possibilities of personnalize
 		var personalizeA = document.createElement("a");
 		var personalizeP = document.createElement("p");
+		personalizeP.className +="col-6";
 		personalizeP.innerHTML = "Personnaliser";
 		personalizeA.appendChild(personalizeP);
 		pizza.appendChild(personalizeA);
@@ -167,7 +162,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		//Add listBox with choice of pizza size
 		var sizePizza = document.createElement("select");
 		sizePizza.name ="size";
-		sizePizza.className +="listbox";
+		sizePizza.className +="listbox row";
 		sizePizza.id = j + "size" + i;
 		//Option size Medium
 		var optionMedium = document.createElement("option");
@@ -191,7 +186,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		//Add listBox with choice of base
 		var basePizza = document.createElement("select");
 		basePizza.name ="base";
-		basePizza.className +="listbox";
+		basePizza.className +="listbox row";
 		basePizza.id = j + "base" + i;
 		basePizza.setAttribute("onchange", "changeBase(" + j +", " + i + ")")
 		//Option base creme fraiche
@@ -214,7 +209,7 @@ for( var j = 0; j < allPizzas.length; j++){
 		var quantityPizza = document.createElement("select");
 		quantityPizza.name="quantity";
 		quantityPizza.id= j + "quantity" + i;
-		quantityPizza.className +="listboxQuant col-5";
+		quantityPizza.className +="listboxQuant";
 		quantityPizza.setAttribute("onchange", "changePrice(" + j +", " + i + ")")
 		//Option number 0
 		var option0 = document.createElement("option");
@@ -261,14 +256,11 @@ for( var j = 0; j < allPizzas.length; j++){
 		/*--------ADD---------*/
 		var divRowAjouter = document.createElement("div");
 		divRowAjouter.className +="row";
-		var divColBeforeAjouter = document.createElement("div");
-		divColBeforeAjouter.className +="col-2";
 		var buttonAjouter = document.createElement("button");
-		buttonAjouter.className +="addThisPizza col-8";
+		buttonAjouter.className +="addThisPizza";
 		buttonAjouter.id = j + "addThisPizza" + i;
 		buttonAjouter.innerHTML = "AJOUTER";
 		buttonAjouter.setAttribute("onclick", "Add(" + j +", " + i + ")");
-		divRowAjouter.appendChild(divColBeforeAjouter);
 		divRowAjouter.appendChild(buttonAjouter);
 		pizza.appendChild(divRowAjouter);
 

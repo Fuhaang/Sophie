@@ -12,12 +12,10 @@
 	</head>
 	<body>
 		<!-- Contenu -->
-		<div class="container">
+		<div class="container-fluid">
 			<!--Header with logo -->
 			<div class="row">
-				<div class="col-5">
-				</div>
-				<header class="headerstandard">
+				<header class="headerstandard col-12">
 					<a href="Pizza.html">
 						<button>
 							<img src="images/images/logo-pizza-times.png">
@@ -27,33 +25,31 @@
 			</div>
 
 			<!--Bacground image & livraison-->
-			<section id="LivraisonBefore" class="row">
-				<div class="col-lg-3">
+			<section id="LivraisonBefore" class="row backgroundImageFull">
+				<div class="col-lg-4">
 				</div>
-				<div id="rectLivraison" class="col-lg-5 col-sm-9">
+				<div id="rectPay" class="col-lg-4 col-sm-9">
 					<div class="row">
 						<div class="col-12" id="livraisonTitle">
 							<p class="h7">
 								PAYER EN LIGNE
 							</p>
 						</div>
-						<div class="col-1" id="margTop">
-						  	<input type="checkbox" id="buy" name="buy" checked>
-						</div>
-						<div>
-						  	<p class="Paiement">
-								PAIEMENT EN LIGNE
-							</p>
-						</div>
-
-
+							<div class="col-1" id="margTop">
+						  		<input type="checkbox" id="buy" name="buy" checked>
+							</div>
+							<div>
+							  	<p class="Paiement">
+									PAIEMENT EN LIGNE
+								</p>
+							</div>
 						<div class="col-12">
 							<p class="txtINFO">
 								NUMERO DE CARTE :
 							</p>
 						</div>
 						<div class="col-12">
-							<input type="text" id="ville" name="ville" required minlength="4" maxlength="30" size="40">
+							<input type="text" id="ville" name="ville" required minlength="4" maxlength="16" size="30">
 						</div>
 						<div class="col-6">
 							<p class="txtINFO">
@@ -89,7 +85,7 @@
 			</section>
 		</div>
 		<footer>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-2"
 						<a href="">

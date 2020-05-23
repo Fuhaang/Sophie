@@ -11,12 +11,10 @@
 	</head>
 	<body>
 		<!-- Contenu -->
-		<div class="container">
+		<div class="container-fluid">
 			<!--Header with logo -->
 			<div class="row">
-				<div class="col-5">
-				</div>
-				<header class="headerstandard">
+				<header class="headerstandard col-12">
 					<a href="Pizza.html">
 						<button>
 							<img src="images/images/logo-pizza-times.png">
@@ -24,36 +22,40 @@
 					</a>
 				</header>
 			</div>
-
-
 			<div class="row">
 				<nav class="col-12">
 						<ol>
 							<li class="navBar">
-								<a href="#">
-									PIZZAS
-								</a>
+								<form action="ChoicePizza.html" method="GET">
+									<input type="hidden" id="pville" name="ville">
+									<input type="hidden" id="pNbrue" name="Nbrue">
+									<input type="hidden" id="prue" name="rue">
+								  	<input type="hidden" id="pscales" name="scales"/>
+									<input type="submit" value="PIZZAS">
+								</form>
 							</li>
 							<li class="navBar">
-								<a href="TexMex.html">
-									TEX-MEX
-								</a>
+								<form action="TexMex.html" method="GET">
+									<input type="hidden" id="tville" name="ville">
+									<input type="hidden" id="tNbrue" name="Nbrue">
+									<input type="hidden" id="true" name="rue">
+								  	<input type="hidden" id="tscales" name="scales"/>
+									<input type="submit" value="TEX-MEX">
+								</form>
 							</li>
 							<li class="navBar">
-								<a href="Boisson.html">
-									BOISSONS
-								</a>
+								<form action="Boisson.html" method="GET">
+									<input type="hidden" id="bville" name="ville">
+									<input type="hidden" id="bNbrue" name="Nbrue">
+									<input type="hidden" id="brue" name="rue">
+								  	<input type="hidden" id="bscales" name="scales"/>
+									<input type="submit" value="BOISSONS">
+								</form>
 							</li>
 						</ol>
 				</nav>
 			</div>
-
-
-
-
-
-
-			<div class="row" id="bannierePizza">
+			<div class="row backgroundImageFull" id="bannierePizza">
 				<p class="col-12 titleTypeChoice">
 					PIZZAS
 				</p>
@@ -94,11 +96,13 @@
 
 					<div class="row">
 						<div class="col-12 nextCenter">
-							<a href="LivraisonAfter.html">
-								<button class="next">
-									SUIVANT
-								</button>
-							</a>
+								<form action="LivraisonAfter.html" method="GET">
+									<input type="hidden" id="lville" name="ville">
+									<input type="hidden" id="lNbrue" name="Nbrue">
+									<input type="hidden" id="lrue" name="rue">
+								  	<input type="hidden" id="lscales" name="scales"/>
+									<input type="submit" value="SUIVANT" class="next">
+								</form>
 						</div>
 						<div class="col-12 lineNext">
 							<hr class="pop">
@@ -122,7 +126,7 @@
 
 		</div>
 		<footer>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-2"
 						<a href="">
@@ -169,40 +173,8 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript">
-			var parameters = location.search.substring(1).split("&");
-			console.log(parameters);
-			console.log(parameters[0]);
 
-			var firstIndex0 = parameters[0].indexOf("=");
-			var lastIndex0 = parameters[0].length;
-			var ville = parameters[0].substring(firstIndex0 + 1, lastIndex0);
-
-			var firstIndex1 = parameters[1].indexOf("=");
-			var lastIndex1 = parameters[1].length;
-			var numRue = parameters[1].substring(firstIndex1 + 1, lastIndex1);
-
-			var firstIndex2 = parameters[2].indexOf("=");
-			var lastIndex2 = parameters[2].length;
-			var rue = parameters[2].substring(firstIndex2 + 1, lastIndex2);
-
-			for (var i = 0; i < rue.length; i++) {
-				if(rue[i] == '+'){
-					rue = rue.replace("+", " ");
-				}
-			}
-
-
-			console.log("!!numRue = " + numRue);
-			console.log("!!rue = " + rue);
-			console.log("!!ville = " + ville);
-
-
-			//Add data livraison
-			var livrable = document.getElementById("numRueRueVille");
-			livrable.innerHTML = numRue + " " + rue + " " + ville;
-		</script>
-
+	  	<script type="text/javascript" src="js/data.js"></script>
 	  	<script type="text/javascript" src="js/Pizza.js"></script>
 	</body>
 </html>

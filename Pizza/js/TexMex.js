@@ -36,22 +36,14 @@ var texMex = [nuggets, spicyChicken, chickenWings, frites, painMozzaOeuf, toastM
 var texs = document.getElementById("LesTexMex");
 
 for (var i = 0; i < texMex.length; i++) {
-	console.log(i);
-	if(i%4 == 0 && i != 0){
-		console.log("TEST" + i);
-		var newLine = document.createElement("div");
-		newLine.className +="col-lg-4 col-0";
-		texs.appendChild(newLine);
-	}
 	//Create div for one pizza
 	var thistex = document.createElement("div");
-	thistex.className +="onePizza col-lg-2 col-6"
+	thistex.className +="onePizza col-lg-3 col-6"
 
 	//Create balise img and add source
 	var img = document.createElement("img");
-	img.className +="choicePizzaPicture";
 	img.setAttribute("width", "150px");
-	img.setAttribute("height", "80px");
+	img.setAttribute("height", "100px");
 	img.setAttribute("position", "center");
 	img.src = "./images/images/tex mex/" + texMex[i].picture;
 	thistex.appendChild(img);
@@ -69,7 +61,7 @@ for (var i = 0; i < texMex.length; i++) {
 	//Add listBox with choice of pizza size
 	var sizeTexMex = document.createElement("select");
 	sizeTexMex.name ="size";
-	sizeTexMex.className +="listbox";
+	sizeTexMex.className +="listbox row";
 	sizeTexMex.id = "size" + i;
 	//Option size Medium
 	var optionMedium = document.createElement("option");
@@ -146,14 +138,11 @@ for (var i = 0; i < texMex.length; i++) {
 	/*--------ADD---------*/
 	var divRowAjouter = document.createElement("div");
 	divRowAjouter.className +="row";
-	var divColBeforeAjouter = document.createElement("div");
-	divColBeforeAjouter.className +="col-2";
 	var buttonAjouter = document.createElement("button");
 	buttonAjouter.className +="addThisPizza col-8";
 	buttonAjouter.id = "addThisPizza" + i;
 	buttonAjouter.innerHTML = "AJOUTER";
 	buttonAjouter.setAttribute("onclick", "Add(" + i + ")");
-	divRowAjouter.appendChild(divColBeforeAjouter);
 	divRowAjouter.appendChild(buttonAjouter);
 	thistex.appendChild(divRowAjouter);
 

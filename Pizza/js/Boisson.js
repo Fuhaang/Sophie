@@ -38,20 +38,12 @@ var allBoissons = [iceTea, oasisTropical, orangina, pepsi, sanPellegrino, jusOra
 var listBoissons = document.getElementById("LesBoisson");
 
 for (var i = 0; i < allBoissons.length; i++) {
-	console.log(i);
-	if(i%4 == 0 && i != 0){
-		console.log("TEST" + i);
-		var newLine = document.createElement("div");
-		newLine.className +="col-lg-4 col-0";
-		listBoissons.appendChild(newLine);
-	}
 	//Create div for one pizza
 	var thisBoisson = document.createElement("div");
-	thisBoisson.className +="onePizza col-lg-2 col-6"
+	thisBoisson.className +="onePizza col-lg-3 col-6"
 
 	//Create balise img and add source
 	var img = document.createElement("img");
-	img.className +="choicePizzaPicture";
 	img.setAttribute("width", "150px");
 	img.setAttribute("height", "80px");
 	img.setAttribute("position", "center");
@@ -71,7 +63,7 @@ for (var i = 0; i < allBoissons.length; i++) {
 	//Add listBox with choice of pizza size
 	var sizeBoisson = document.createElement("select");
 	sizeBoisson.name ="size";
-	sizeBoisson.className +="listbox";
+	sizeBoisson.className +="listbox row";
 	sizeBoisson.id = "size" + i;
 	//Option size Medium
 	var optionMedium = document.createElement("option");
@@ -148,14 +140,11 @@ for (var i = 0; i < allBoissons.length; i++) {
 	/*--------ADD---------*/
 	var divRowAjouter = document.createElement("div");
 	divRowAjouter.className +="row";
-	var divColBeforeAjouter = document.createElement("div");
-	divColBeforeAjouter.className +="col-2";
 	var buttonAjouter = document.createElement("button");
 	buttonAjouter.className +="addThisPizza col-8";
 	buttonAjouter.id = "addThisPizza" + i;
 	buttonAjouter.innerHTML = "AJOUTER";
 	buttonAjouter.setAttribute("onclick", "Add(" + i + ")");
-	divRowAjouter.appendChild(divColBeforeAjouter);
 	divRowAjouter.appendChild(buttonAjouter);
 	thisBoisson.appendChild(divRowAjouter);
 

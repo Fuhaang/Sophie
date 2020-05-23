@@ -10,12 +10,10 @@
 	</head>
 	<body>
 		<!-- Contenu -->
-		<div class="container">
+		<div class="container-fluid">
 			<!--Header with logo -->
 			<div class="row">
-				<div class="col-5">
-				</div>
-				<header class="headerstandard">
+				<header class="headerstandard col-12">
 					<a href="Pizza.html">
 						<button>
 							<img src="images/images/logo-pizza-times.png">
@@ -24,12 +22,45 @@
 				</header>
 			</div>
 
+
+			<div class="row">
+				<nav class="col-12">
+						<ol>
+							<li class="navBar">
+								<form action="ChoicePizza.html" method="GET">
+									<input type="hidden" id="pville" name="ville">
+									<input type="hidden" id="pNbrue" name="Nbrue">
+									<input type="hidden" id="prue" name="rue">
+								  	<input type="hidden" id="pscales" name="scales"/>
+									<input type="submit" value="PIZZAS">
+								</form>
+							</li>
+							<li class="navBar">
+								<form action="TexMex.html" method="GET">
+									<input type="hidden" id="tville" name="ville">
+									<input type="hidden" id="tNbrue" name="Nbrue">
+									<input type="hidden" id="true" name="rue">
+								  	<input type="hidden" id="tscales" name="scales"/>
+									<input type="submit" value="TEX-MEX">
+								</form>
+							</li>
+							<li class="navBar">
+								<form action="Boisson.html" method="GET">
+									<input type="hidden" id="bville" name="ville">
+									<input type="hidden" id="bNbrue" name="Nbrue">
+									<input type="hidden" id="brue" name="rue">
+								  	<input type="hidden" id="bscales" name="scales"/>
+									<input type="submit" value="BOISSONS">
+								</form>
+							</li>
+						</ol>
+				</nav>
+			</div>
 			<!--Bacground image & livraison-->
-			<form action="Paiement.html" method="GET" class="row">
-				<section id="LivraisonBefore" class="row">
-					<div class="col-lg-2 ">
-					</div>
-					<div id="rectLivraison" class="col-lg-6 col-sm-9">
+			<section id="LivraisonAfter" class="row backgroundImageFull">
+				<div class="col-lg-2"></div>
+				<div id="rectLivraison" class="col-lg-5 col-12">
+					<form action="Paiement.html" method="GET">
 						<div class="row">
 							<div class="col-12" id="livraisonTitle">
 								<p class="h7">
@@ -100,11 +131,45 @@
 							</div>
 						</div>
 					</div>
-				</section>
-			</form>
+					<div class="col-lg-1">
+					</div>
+					<div class="col-12 col-lg-3 panier" id="Panier">
+							<p>MA COMMANDE</p>
+							<div id="PanierItems">
+							</div>
+							<div class="row" id="PanierTotal">
+								<p class="col-6" id="panierTotalWord">
+									TOTAL
+								</p>
+								<p class="col-6" id="panierTotalPrice">
+									0€
+								</p>
+							</div>
+
+							<div class="row">
+								<div class="col-12 lineNext">
+									<hr class="pop">
+								</div>
+								<p class="col-12 detailLivraison">
+									Livrée à l'adresse :
+								</p>
+								<p class="col-12 detailLivraison" id="numRueRueVille">
+								</p>
+								<p class="col-12 detailLivraison">
+									<br>
+									Par votre Pizza time's :
+								</p>
+								<p class="col-12 detailLivraison">
+									Paris 19 Flandre
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
 		</div>
 		<footer>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-2"
 						<a href="">
@@ -151,5 +216,9 @@
 				</div>
 			</div>
 		</footer>
+	  	<script type="text/javascript" src="js/data.js"></script>
+	  	<script type="text/javascript">
+	  		console.log(docuent.getElementById("pville").value);
+	  	</script>
 	</body>
 </html>
