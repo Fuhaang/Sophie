@@ -22,7 +22,7 @@
 				</header>
 			</div>
 
-
+		<!-- NavBar for choose Pizza, TexMex or Drink
 			<div class="row">
 				<nav class="col-12">
 						<ol>
@@ -56,6 +56,7 @@
 						</ol>
 				</nav>
 			</div>
+		-->
 			<!--Bacground image & livraison-->
 			<section id="LivraisonAfter" class="row backgroundImageFull">
 				<div class="col-lg-2"></div>
@@ -112,7 +113,7 @@
 								</div>
 							</div>
 							<div class="row"  id="centr">
-								<div class="col-1">
+								<div class="col-1 check">
 								  	<input type="checkbox" id="newlester" name="newlester" checked/>
 								</div>
 								<div>
@@ -122,18 +123,18 @@
 								</div>
 							</div>
 							<div class="col-6" id="now" class="margePreviousNext">
-								<a href="ChoicePizza.html">
-									PRECEDENT
-								</a>
+								<form>
+									<input type = "button" value = "PRECEDENT" onclick = "history.back()">
+								</form>
 							</div>
 							<div class="col-6" id="after" class="margePreviousNext">
 								<input type="submit" value="SUIVANT">
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-1">
-					</div>
-					<div class="col-12 col-lg-3 panier" id="Panier">
+						</div>
+						<div class="col-lg-1">
+						</div>
+						<div class="col-12 col-lg-3 panier" id="Panier">
 							<p>MA COMMANDE</p>
 							<div id="PanierItems">
 							</div>
@@ -216,7 +217,7 @@
 				</div>
 			</div>
 		</footer>
-	  	<script type="text/javascript" src="js/data.js"></script>
+	  	<script type="text/javascript" src="js/dataNext.js"></script>
 	  	<script type="text/javascript">
 	  		console.log(docuent.getElementById("pville").value);
 	  	</script>

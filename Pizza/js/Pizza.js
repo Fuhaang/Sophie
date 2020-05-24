@@ -126,8 +126,8 @@ for( var j = 0; j < allPizzas.length; j++){
 
 		//Create balise img and add source
 		var img = document.createElement("img");
-		img.setAttribute("width", "150px");
-		img.setAttribute("height", "100px");
+		img.setAttribute("width", "200px");
+		img.setAttribute("height", "110px");
 		img.src = "./images/images/pizza/" + allPizzas[j][i].picture;
 		pizza.appendChild(img);
 

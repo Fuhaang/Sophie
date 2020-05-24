@@ -42,8 +42,8 @@ for (var i = 0; i < texMex.length; i++) {
 
 	//Create balise img and add source
 	var img = document.createElement("img");
-	img.setAttribute("width", "150px");
-	img.setAttribute("height", "100px");
+	img.setAttribute("width", "200px");
+	img.setAttribute("height", "110px");
 	img.setAttribute("position", "center");
 	img.src = "./images/images/tex mex/" + texMex[i].picture;
 	thistex.appendChild(img);
@@ -93,7 +93,7 @@ for (var i = 0; i < texMex.length; i++) {
 	var quantityTexMex = document.createElement("select");
 	quantityTexMex.name="quantity";
 	quantityTexMex.id= "quantity" + i;
-	quantityTexMex.className +="listboxQuant col-5";
+	quantityTexMex.className +="listboxQuant";
 	quantityTexMex.setAttribute("onchange", "changePrice(" + i + ")");
 	//Option number 0
 	var option0 = document.createElement("option");

@@ -25,12 +25,12 @@ var cl75 = new Size(4);
 
 //Create Boisson's
 var iceTea = new Boisson("8814267760670.png", "LIPTON ICE TEA", cl33, 1.80);
-var oasisTropical = new Boisson("8814267760670.png", "OASIS TROPICAL", cl33, 1.80);
-var orangina = new Boisson("8814267760670.png", "ORANGINA", cl33, 1.80);
-var pepsi = new Boisson("8814267760670.png", "PEPSI", cl33, 1.80);
-var sanPellegrino = new Boisson("8814267760670.png", "SAN PELLEGRINO", cl33, 1.80);
-var jusOrange = new Boisson("8814267760670.png", "JUS D'ORANGE TROPICANA", cl33, 1.80);
-var vittel = new Boisson("8814267760670.png", "VITTEL", cl33, 1.80);
+var oasisTropical = new Boisson("tropical.png", "OASIS TROPICAL", cl33, 1.80);
+var orangina = new Boisson("orangina.png", "ORANGINA", cl33, 1.80);
+var pepsi = new Boisson("pepsii.png", "PEPSI", cl33, 1.80);
+var sanPellegrino = new Boisson("san pel.png", "SAN PELLEGRINO", cl33, 1.80);
+var jusOrange = new Boisson("tropicana.png", "JUS D'ORANGE TROPICANA", cl33, 1.80);
+var vittel = new Boisson("vitell.png", "VITTEL", cl33, 1.80);
 
 //Create List of Boisson's
 var allBoissons = [iceTea, oasisTropical, orangina, pepsi, sanPellegrino, jusOrange, vittel];
@@ -44,8 +44,8 @@ for (var i = 0; i < allBoissons.length; i++) {
 
 	//Create balise img and add source
 	var img = document.createElement("img");
-	img.setAttribute("width", "150px");
-	img.setAttribute("height", "80px");
+	img.setAttribute("width", "200px");
+	img.setAttribute("height", "110px");
 	img.setAttribute("position", "center");
 	img.src = "./images/images/Boissons/" + allBoissons[i].picture;
 	thisBoisson.appendChild(img);
@@ -95,7 +95,7 @@ for (var i = 0; i < allBoissons.length; i++) {
 	var quantityBoisson = document.createElement("select");
 	quantityBoisson.name="quantity";
 	quantityBoisson.id= "quantity" + i;
-	quantityBoisson.className +="listboxQuant col-5";
+	quantityBoisson.className +="listboxQuant";
 	quantityBoisson.setAttribute("onchange", "changePrice(" + i + ")");
 	//Option number 0
 	var option0 = document.createElement("option");
