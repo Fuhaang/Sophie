@@ -122,14 +122,20 @@
 									</p>
 								</div>
 							</div>
-							<div class="col-6" id="now" class="margePreviousNext">
-								<form>
-									<input type = "button" value = "PRECEDENT" onclick = "history.back()">
-								</form>
-							</div>
-							<div class="col-6" id="after" class="margePreviousNext">
-								<input type="submit" value="SUIVANT">
-							</div>
+							<div class="col-16 margePreviousNext" id="now">
+								<input type="hidden" id="lville" name="ville">
+								<input type="hidden" id="lNbrue" name="Nbrue">
+								<input type="hidden" id="lrue" name="rue">
+								<input type="hidden" id="lscales" name="scales"/>
+								<input type="button" value="PRECEDENT" onclick="dynamicPreviousPage()">
+						</div>
+							<div class="col-6 margePreviousNext" id="after">
+								<input type="hidden" id="lville" name="ville">
+								<input type="hidden" id="lNbrue" name="Nbrue">
+								<input type="hidden" id="lrue" name="rue">
+								<input type="hidden" id="lscales" name="scales"/>
+								<input type="button" value="SUIVANT" onclick="dynamicNextPage()">
+						</div>
 						</div>
 						</div>
 						<div class="col-lg-1">
@@ -217,9 +223,7 @@
 				</div>
 			</div>
 		</footer>
+	  	<script type="text/javascript" src="js/LivraisonAfter.js"></script>
 	  	<script type="text/javascript" src="js/dataNext.js"></script>
-	  	<script type="text/javascript">
-	  		console.log(docuent.getElementById("pville").value);
-	  	</script>
 	</body>
 </html>

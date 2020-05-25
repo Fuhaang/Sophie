@@ -14,6 +14,14 @@ function Pizza(picture, name, ingredients, size, base, price){
 	this.base = base;
 	this.price = price;
 }
+//quantitee, nom, prix, taille, labase
+function PizzaPanier(quantitee, nom, prix, taille, labase){
+	this.quantitee = quantitee;
+	this.nom = nom;
+	this.prix = prix;
+	this.taille = taille;
+	this.labase = labase;
+}
 
 function Size(size){
 	this.size = size;
@@ -29,7 +37,7 @@ function Base(base){
 var cremeFraiche = new Base("Base crème fraîche");
 var sauceTomate = new Base("Base sauce tomate");
 
-
+var monPanier = new Array();
 
 //Create Pizza's Supremes
 var pizzaKebab = new Pizza("URBAN KEBAB.PNG", "KEBAB",
@@ -63,7 +71,7 @@ var pizzasSupreme = [pizzaKebab, pizzaSavoyard, pizzaDaviola, pizzaIndienne,
 
 
 //Create Pizza's Incontournables
-var pizzaSteakCheese = new Pizza("CHEESE STEAK.PNG", "STEAK & CHEESE",
+var pizzaSteakCheese = new Pizza("CHEESE STEAK.PNG", "STEAK ET CHEESE",
 	"Sauce tomate, mozzarella, tomates, boulettes de boeuf, origan",
 	medium, cremeFraiche, 12);
 var pizzaReine = new Pizza("REINE.PNG", "REINE",
@@ -291,28 +299,37 @@ function Add(j, i){
 	if(document.getElementById(j + "quantity" + i).value != 0){
 
 		var commande = document.getElementById("PanierItems");
+		var maPizza = new PizzaPanier();
 
 
 		var div1 = document.createElement("div");
 		div1.className += "row";
 
 		var pNbrPizza = document.createElement("p");
-		pNbrPizza.id = "panierNbrPizza";
+		pNbrPizza.id = j + "panierNbrPizza" + i;
 		pNbrPizza.className += "col-2";
 		//add quantity
-		pNbrPizza.innerHTML = document.getElementById(j + "quantity" + i).value + "x";
+		var quantitee = document.getElementById(j + "quantity" + i).value + "x";
+		pNbrPizza.innerHTML = quantitee;
+		maPizza.quantitee = quantitee;
+		console.log(maPizza.quantitee);
 
 		var pNamePizza = document.createElement("p");
 		pNamePizza.id = "panierNamePizza";
 		pNamePizza.className += "col-7";
 		//add name
-		pNamePizza.innerHTML = allPizzas[j][i].name;
+		var nom = allPizzas[j][i].name;
+		pNamePizza.innerHTML = nom;
+		maPizza.nom = nom;
+		console.log(maPizza.nom);
 
 		var pPricePizza = document.createElement("p");
 		pPricePizza.id = "panierPricePizza";
 		//add price
-		pPricePizza.innerHTML = document.getElementById(j + "quantity" + i).value * allPizzas[j][i].price + "€";//€
-
+		var prix = document.getElementById(j + "quantity" + i).value * allPizzas[j][i].price;
+		pPricePizza.innerHTML = prix + "€";//€
+		maPizza.prix = prix;
+		console.log(maPizza.prix);
 
 		div1.appendChild(pNbrPizza);
 		div1.appendChild(pNamePizza);
@@ -328,7 +345,10 @@ function Add(j, i){
 		pSizePizza.id = "panierSizePizza";
 		pSizePizza.className += "col-10";
 		//add size
-		pSizePizza.innerHTML = document.getElementById(j + "size" + i).value;
+		var taille = document.getElementById(j + "size" + i).value;
+		pSizePizza.innerHTML = taille;
+		maPizza.taille = taille;
+		console.log(maPizza.taille);
 		
 		div2.appendChild(div2Before);
 		div2.appendChild(pSizePizza);
@@ -343,8 +363,13 @@ function Add(j, i){
 		pBasePizza.id = "panierBasePizza";
 		pBasePizza.className += "col-10";
 		//add base
-		pBasePizza.innerHTML = document.getElementById(j + "base" + i).value;
-		
+		var labase = document.getElementById(j + "base" + i).value;
+		pBasePizza.innerHTML = labase;
+		maPizza.labase = labase;
+		console.log(maPizza.labase);
+
+		monPanier.push(maPizza);
+
 		div3.appendChild(div3Before);
 		div3.appendChild(pBasePizza);
 		commande.appendChild(div3);
@@ -367,6 +392,24 @@ function Add(j, i){
 }
 
 
+function dynamicNextPage(){
+	var numRue = document.getElementById("lNbrue").value;
+	var rue = document.getElementById("lrue").value;
+	var ville = document.getElementById("lville").value;
+	var scale = document.getElementById("lscales").value;
+
+	//quantitee, nom, prix, taille, labase
+	var urlPanier = "";
+	for (var i = 0; i < monPanier.length; i++) {
+		urlPanier +="&" + monPanier[i].quantitee + "|" + monPanier[i].nom + "|"
+		+ monPanier[i].prix + "|" + monPanier[i].taille + "|" + monPanier[i].labase;
+	}
+	console.log("urlPanier --->" + urlPanier);
+
+	console.log("numRue, rue, ville, scale :" + numRue + "|" + rue + "|" + ville + "|" + scale);
+	var urlLocalisation = "ville=" + ville + "&Nbrue=" + numRue + "&rue=" + rue + "&scales=" + scale;
+	window.location.href = "TexMex.html"+ window.location.search + urlPanier;
+}
 
 var pagePizza = document.getElementById("goPizzasPage");
 var input = document.createElement("input");

@@ -98,13 +98,11 @@
 
 					<div class="row">
 						<div class="col-12 nextCenter">
-								<form action="TexMex.html" method="GET">
-									<input type="hidden" id="lville" name="ville">
-									<input type="hidden" id="lNbrue" name="Nbrue">
-									<input type="hidden" id="lrue" name="rue">
-								  	<input type="hidden" id="lscales" name="scales"/>
-									<input type="submit" value="SUIVANT" class="next">
-								</form>
+								<input type="hidden" id="lville" name="ville">
+								<input type="hidden" id="lNbrue" name="Nbrue">
+								<input type="hidden" id="lrue" name="rue">
+								<input type="hidden" id="lscales" name="scales"/>
+								<input type="button" value="SUIVANT" class="next" onclick="dynamicNextPage()">
 						</div>
 						<div class="col-12 lineNext">
 							<hr class="pop">
@@ -176,7 +174,6 @@
 			</div>
 		</footer>
 
-	  	<script type="text/javascript" src="js/panier.js"></script>
 	  	<script type="text/javascript" src="js/dataNext.js"></script>
 	  	<script type="text/javascript" src="js/Pizza.js"></script>
 	</body>
