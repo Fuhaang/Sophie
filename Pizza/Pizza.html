@@ -39,13 +39,15 @@
 						</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-10 livrEmport" id ="aEmporter">
-						<a href="ChoicePizza.html">
-							<button class="mainPage">A EMPORTER</button>
-						</a>
-					</div>
-				</div>
+				<form action="ChoicePizza.html" method="GET" class="row">
+						<div class="col-10 livrEmport" id ="aEmporter">
+							<input type="hidden" id="ville" name="ville" required minlength="4" maxlength="30" size="30" value="Flandre">
+							<input type="hidden" id="Nbrue" name="Nbrue" required minlength="1" maxlength="30" size="30" value="Paris">
+							<input type="hidden" id="rue" name="rue" required minlength="4" maxlength="30" size="30" value="19">
+							<input type="hidden" id="scales" name="scales" value="on"/>
+							<input type="submit" value="A EMPORTER" class="mainPage">
+						</div>
+				</form>
 			</section>
 
 			<!-- Offres les plus populaires -->
@@ -79,7 +81,7 @@
 							1 part de pizza spéciale Biggy Slice au choix parmis toutes les pizzas ! Une potatoes et une boisson 33cl !
 
 							Venez goûter nos pizzas et nos différentes pâtes !
-							La Pan, cuite dans un caquelon, la Sésame aux graines de sésame et la Cheesy fourrée au fromage St-Morel !
+							La Pan, cuite dans un caquelon, la Sésame aux graines de sésame et la Cheesy fourrée au fromage St-Moret !
 						</p>
 					</div>
 				</div>

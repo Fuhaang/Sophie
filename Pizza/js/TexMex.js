@@ -49,9 +49,7 @@ for (var i = 0; i < texMex.length; i++) {
 
 	//Create balise img and add source
 	var img = document.createElement("img");
-	img.setAttribute("width", "200px");
-	img.setAttribute("height", "110px");
-	img.setAttribute("position", "center");
+	img.className +="imgItem";
 	img.src = "./images/images/tex mex/" + texMex[i].picture;
 	thistex.appendChild(img);
 

@@ -110,7 +110,7 @@ function AddItem(item){
 
 }
 
-function Item(){
+function SeeItem(){
 	var i = 4;
 	var panier = document.getElementById("PanierItems");
 	while(parameters[i]){
@@ -121,7 +121,7 @@ function Item(){
 		i++;
 	}
 }
-Item();
+SeeItem();
 
 function SeeAddress(ville, numRue, rue){
 	for (var i = 0; i < rue.length; i++) {

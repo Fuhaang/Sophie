@@ -23,7 +23,6 @@
 			</div>
 
 			<!--Bacground image & livraison-->
-			<form action="ChoicePizza.html" method="GET" class="row">
 				<section id="LivraisonBefore" class="row backgroundImageFull">
 					<div class="col-lg-4">
 					</div>
@@ -40,15 +39,17 @@
 								</p>
 							</div>
 							<div class="col-6" id="now">
-								<a href="#" id="nowRec">
+								<button id="nowRec" onclick="selectNowOrAfter(0)">
 									MAINTENANT
-								</a>
+								</button>
+
 							</div>
 							<div class="col-6" id="after">
-								<a href="#" id="afterRec">
+								<button id="afterRec" onclick="selectNowOrAfter(1)">
 									PLUS TARD
-								</a>
+								</button>
 							</div>
+			<form action="ChoicePizza.html" method="GET" class="row">
 							<div class="col-12">
 								<p class="txtINFO">
 									VOTRE VILLE OU VOTRE CODE POSTAL
@@ -93,18 +94,18 @@
 									</p>
 								</div>
 							</div>
-							<div class="col-6" id="now" class="margePreviousNext">
-								<a href="Pizza.html">
+							<div class="col-6" id="previous" class="margePreviousNext">
+								<a href="Pizza.html" id="previousRec">
 									PRECEDENT
 								</a>
 							</div>
-							<div class="col-6" id="after" class="margePreviousNext">
-								<input type="submit" value="SUIVANT">
+							<div class="col-6" id="suivant" class="margePreviousNext">
+								<input type="submit" value="SUIVANT" id="suivantRec">
 							</div>
+			</form>
 						</div>
 					</div>
 				</section>
-			</form>
 		</div>
 		<footer>
 			<div class="container-fluid">
@@ -154,5 +155,31 @@
 				</div>
 			</div>
 		</footer>
+		<script type="text/javascript">
+			function selectNowOrAfter(i){
+				var buttonNow = document.getElementById("nowRec");
+				var buttonAfter = document.getElementById("afterRec");
+				if(i == 0){
+					console.log("Select now");
+					buttonNow.style.background = "#3E3C3C";
+					buttonNow.style.border = "#3E3C3C";
+					buttonNow.style.color = "white";
+
+					buttonAfter.style.background = 'grey';
+					buttonAfter.style.border = 'grey';
+					buttonAfter.style.color = 'black';
+				}
+				else{
+					console.log("Select after");
+					buttonAfter.style.background = '#3E3C3C';
+					buttonAfter.style.border = '#3E3C3C';
+					buttonAfter.style.color = 'white';
+
+					buttonNow.style.background = "grey";
+					buttonNow.style.border = "grey";
+					buttonNow.style.color = "black";
+				}
+			}
+		</script>
 	</body>
 </html>

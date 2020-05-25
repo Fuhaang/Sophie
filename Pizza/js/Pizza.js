@@ -134,8 +134,8 @@ for( var j = 0; j < allPizzas.length; j++){
 
 		//Create balise img and add source
 		var img = document.createElement("img");
-		img.setAttribute("width", "200px");
-		img.setAttribute("height", "110px");
+		img.className +="imgItem";
+
 		img.src = "./images/images/pizza/" + allPizzas[j][i].picture;
 		pizza.appendChild(img);
 
@@ -401,7 +401,7 @@ function dynamicNextPage(){
 	//quantitee, nom, prix, taille, labase
 	var urlPanier = "";
 	for (var i = 0; i < monPanier.length; i++) {
-		urlPanier +="&" + monPanier[i].quantitee + "|" + monPanier[i].nom + "|"
+		urlPanier +="&item" + monPanier[i].quantitee + "|" + monPanier[i].nom + "|"
 		+ monPanier[i].prix + "|" + monPanier[i].taille + "|" + monPanier[i].labase;
 	}
 	console.log("urlPanier --->" + urlPanier);

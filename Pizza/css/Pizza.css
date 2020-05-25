@@ -18,7 +18,7 @@
 p{
 	font-family: "metropolis";
 }
-h1, h2, h3, h4, h5, .h7, .txtLivraisonBefore, .nowRec, .afterRec, .txtINFO, .explain, .titleTypeChoice{
+h1, h2, h3, h4, h5, .h7, .txtLivraisonBefore, .nowRec, .afterRec, .txtINFO, .explain, .titleTypeChoice, .mainPage, #OU{
 	font-family: "bebas-neue";
 	font-weight: bold;
 }
@@ -49,6 +49,8 @@ header{
 	font-size: 45px;
 	width: 400px;
 	border-radius: 50px;
+	filter: drop-shadow(2px 2px 10px black);
+	border-style: none;
 }
 #bye{
 	text-align: center;
@@ -216,7 +218,7 @@ footer{
 	background-color: black;
 	height: 100px;
 	text-align: center;
-
+	margin-top: 20px;
 }
 a, a:hover{
 	text-decoration: none;
@@ -269,32 +271,71 @@ h6{
 	font-size: 20px;
 }
 #now{
-	color: white;
-	font-weight: bold;
 	text-align: right;
 }
 #nowRec{
 	background-color: #3E3C3C;
+	border-color: #3E3C3C;
+	color: white;
+
 	padding-right: 10px;
 	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-right: -15px;
 	font-size: 20px;
+	border-radius: 0;
+	font-weight: bold;
 }
 #after{
-	font-weight: bold;
 	text-align: left;
 }
 #afterRec{
 	background-color: grey;
+	border-color: grey;
+	color: black;
+
 	padding-right: 10px;
 	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-left: -15px;
 	font-size: 20px;
-	color: black;
+	border-radius: 0;
+	font-weight: bold;
+}
+button:focus {outline:0;}
+
+#previous{
+	color: white;
+	font-weight: bold;
+	text-align: left;
+	margin-top: 8px;
+}
+#previousRec{
+	background-color: #3E3C3C;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	font-size: 20px;
+	margin-left: 30px;
+}
+#suivant{
+	text-align: right;
+}
+#suivantRec{
+	background-color: black;
+	border-color: black;
+	color: white;
+	font-weight: bold;
+	text-align: right;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 30px;
+	padding-left: 30px;
+	margin-right: 30px;
+	font-size: 22px;
 }
 .txtINFO{
 	margin-left: 25px;
@@ -348,16 +389,17 @@ h6{
 /*ChoicePizza*/
 /*-----------*/
 .onePizza{
-	padding-left: 50px;
+	padding-left: 30px;
 	margin-bottom: 60px;
 }
 .choicePizzaPicture{
 	width: 150px;
 }
 .nameOfPizza{
-	font-size: 20px;
+	font-size: 13px;
 	font-weight: bold;
 	text-align: left;
+	margin-top: 10px;
 }
 .descriptionOfPizza{
 	font-size: 10px;
@@ -437,13 +479,15 @@ h6{
 	text-align: center;
 }
 .lineNext{
-
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 .detailLivraison{
 	margin-top: -20px;
 	text-align: left;
 	font-size: 12px;
-}.lineNext .pop{
+}
+.lineNext .pop{
 	margin: 0px;
 	margin-bottom: 20px;
 }
@@ -477,6 +521,7 @@ nav{
 	font-size: 90px;
 	font-weight: bold;
 	margin-top: 145px;
+	text-shadow: black 3px 0 6px;
 }
 #banniereTexMex{
 	height: 400px;
@@ -503,4 +548,14 @@ nav{
 	min-height: 450px;
 	margin: 0;
 	padding: 0;
+}
+
+
+
+
+.imgItem{
+	width: 200px;
+	height: 110px;
+	filter: drop-shadow(2px 2px 10px black);
+	object-fit: cover;
 }
