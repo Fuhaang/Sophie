@@ -292,31 +292,91 @@ function changeBase(j, i){
 	var base = document.getElementById(j + "base" + i).value;
 	console.log(base);
 }
-
-
-
 function Add(j, i){
 	if(document.getElementById(j + "quantity" + i).value != 0){
 
 		var commande = document.getElementById("PanierItems");
+
+		/* VERIFIER SI LA PIZZA A AJOUTER NE L'EST PAS DEJA!!!
+		 SI OUI, ADDITIONNER, SINON CREER
+		*/
+		var pNbrPizza = document.createElement("p");
+		var quantitee = document.getElementById(j + "quantity" + i).value;
+
+		//Prix total pour les x mêmes pizza
+		var pPricePizza = document.getElementById(j + "panierPricePizza" + i);
+
+		var existName = document.getElementById(j + "panierNamePizza" + i);
+		var existSize = document.getElementById(j + "panierSizePizza" + i);
+		var existBase = document.getElementById(j + "panierBasePizza" + i);
+		var taille = document.getElementById(j + "size" + i).value;
+
+		 console.log(existName + "   " + existSize + "   " + existBase);
+		if(existName && existSize && existBase && taille == existSize.innerHTML){
+			console.log("Prix total pour les x mêmes pizza " + pPricePizza.innerHTML);
+			//On garde l'ancien prix de ce type de pizza
+			var oldPrice = pPricePizza.innerHTML;
+			console.log("On garde l'ancien prix de ce type de pizza -> " + oldPrice);
+
+			pNbrPizza = document.getElementById(j + "panierNbrPizza" + i);
+			//Nombre actuelle de cette pizza
+			pNbrPizza.innerHTML = pNbrPizza.innerHTML.split("x")[0];
+			console.log("Nombre actuelle de cette pizza " + pNbrPizza.innerHTML);
+			//Prix unitaire de cette pizza
+			var unitPrice = parseInt(pPricePizza.innerHTML) / parseInt(pNbrPizza.innerHTML);
+			console.log("Prix unitaire de cette pizza -> " + unitPrice);
+
+			//Nouvelle quantitée de cette pizza
+			var newQuantity = parseInt(pNbrPizza.innerHTML) + parseInt(quantitee);
+			console.log("Nouvelle quantitée --> " + newQuantity);
+
+			//On met dans la vue cette quantité
+			pNbrPizza.innerHTML = newQuantity + "x";
+			console.log("newQuantity -->" + pNbrPizza.innerHTML);
+
+			var totalPanier = document.getElementById("PanierTotal");
+
+			var pTotalWord = document.createElement("p");
+			pTotalWord.className +="col-6";
+			pTotalWord.id = "panierTotalWord";
+			pTotalWord.innerHTML = "TOTAL";
+
+			var pTotalPrice = document.createElement("p");
+			pTotalPrice.className +="col-6";
+			pTotalPrice.id = "panierTotalPrice";
+
+			//Le prix des pizza de ce type est de
+			pPricePizza.innerHTML = unitPrice * newQuantity + "€";
+			console.log("Le prix des pizza de ce type est de -> " + pPricePizza.innerHTML);
+
+			//On récupère l'int correspondant à ce prix
+			pTotalPrice.innerHTML += parseInt(pPricePizza.innerHTML);
+			console.log("On récupère l'int correspondant à ce prix -> " + pTotalPrice.innerHTML);
+
+
+			panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) - parseInt(oldPrice) + "€";
+
+		}
+		else{
+
+
 		var maPizza = new PizzaPanier();
 
 
 		var div1 = document.createElement("div");
 		div1.className += "row";
 
-		var pNbrPizza = document.createElement("p");
 		pNbrPizza.id = j + "panierNbrPizza" + i;
-		pNbrPizza.className += "col-2";
+		pNbrPizza.className += "col-2 panierNbrPizza";
 		//add quantity
-		var quantitee = document.getElementById(j + "quantity" + i).value + "x";
+		quantitee += "x";
 		pNbrPizza.innerHTML = quantitee;
 		maPizza.quantitee = quantitee;
 		console.log(maPizza.quantitee);
 
 		var pNamePizza = document.createElement("p");
-		pNamePizza.id = "panierNamePizza";
-		pNamePizza.className += "col-7";
+		pNamePizza.id = j + "panierNamePizza" + i;
+		pNamePizza.className += "col-7 panierNamePizza";
 		//add name
 		var nom = allPizzas[j][i].name;
 		pNamePizza.innerHTML = nom;
@@ -324,7 +384,8 @@ function Add(j, i){
 		console.log(maPizza.nom);
 
 		var pPricePizza = document.createElement("p");
-		pPricePizza.id = "panierPricePizza";
+		pPricePizza.className +="panierPricePizza";
+		pPricePizza.id = j + "panierPricePizza" + i;
 		//add price
 		var prix = document.getElementById(j + "quantity" + i).value * allPizzas[j][i].price;
 		pPricePizza.innerHTML = prix + "€";//€
@@ -342,10 +403,9 @@ function Add(j, i){
 		var div2Before = document.createElement("div");
 		div2Before.className +="col-2";
 		var pSizePizza = document.createElement("p");
-		pSizePizza.id = "panierSizePizza";
-		pSizePizza.className += "col-10";
+		pSizePizza.id = j + "panierSizePizza" + i;
+		pSizePizza.className += "col-10 panierSizePizza";
 		//add size
-		var taille = document.getElementById(j + "size" + i).value;
 		pSizePizza.innerHTML = taille;
 		maPizza.taille = taille;
 		console.log(maPizza.taille);
@@ -360,8 +420,8 @@ function Add(j, i){
 		var div3Before = document.createElement("div");
 		div3Before.className +="col-2";
 		var pBasePizza = document.createElement("p");
-		pBasePizza.id = "panierBasePizza";
-		pBasePizza.className += "col-10";
+		pBasePizza.id = j + "panierBasePizza" + i;
+		pBasePizza.className += "col-10 panierBasePizza";
 		//add base
 		var labase = document.getElementById(j + "base" + i).value;
 		pBasePizza.innerHTML = labase;
@@ -387,7 +447,8 @@ function Add(j, i){
 		pTotalPrice.id = "panierTotalPrice";
 		pTotalPrice.innerHTML += pPricePizza.innerHTML;
 
-		panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) + "€";
+		panierTotalPrice.innerHTML = parseFloat(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) + "€";
+		}
 	}
 }
 
@@ -398,11 +459,15 @@ function dynamicNextPage(){
 	var ville = document.getElementById("lville").value;
 	var scale = document.getElementById("lscales").value;
 
+	var parameters =  location.search.substring(1).split("&");
+	console.log("Donne le nombre de parametres --> " + parameters.length);
+	idItem = parameters.length - 4;
+
 	//quantitee, nom, prix, taille, labase
 	var urlPanier = "";
-	for (var i = 0; i < monPanier.length; i++) {
-		urlPanier +="&item" + monPanier[i].quantitee + "|" + monPanier[i].nom + "|"
-		+ monPanier[i].prix + "|" + monPanier[i].taille + "|" + monPanier[i].labase;
+	for (var i = idItem; i < monPanier.length + idItem; i++) {
+		urlPanier +="&item" + i + "=" + monPanier[i - idItem].quantitee + "|" + monPanier[i - idItem].nom + "|"
+		+ monPanier[i - idItem].prix + "|" + monPanier[i - idItem].taille + "|" + monPanier[i - idItem].labase;
 	}
 	console.log("urlPanier --->" + urlPanier);
 

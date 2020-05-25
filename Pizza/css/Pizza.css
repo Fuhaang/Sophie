@@ -445,17 +445,17 @@ button:focus {outline:0;}
 	height: 100%;
 	opacity: 0.8;
 }
-#panierNbrPizza{
+.panierNbrPizza{
 	text-align: center;
 }
-#panierNamePizza{
+.panierNamePizza{
 	text-align: left;
 	font-weight: bold;
 }
-#panierPricePizza{
+.panierPricePizza{
 	font-weight: bold;
 }
-#panierSizePizza, #panierBasePizza, #paniersizeTexMex, #paniersizeBoisson{
+.panierSizePizza, .panierBasePizza, .paniersizeTexMex, .paniersizeBoisson{
 	font-size: 12px;
 	font-style: italic;
 	text-align: left;

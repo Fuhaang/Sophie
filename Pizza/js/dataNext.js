@@ -21,10 +21,12 @@ function Scale(){
 	var lastIndex3 = parameters[3].length;
 	return parameters[3].substring(firstIndex3 + 1, lastIndex3);
 }
-
-
 function AddItem(item){
+	item[0] = item[0].split("=");
 	var commande = document.getElementById("PanierItems");
+
+	var thisItem = document.createElement("div");
+	thisItem.setAttribute("id", item[0]);
 
 	var div1 = document.createElement("div");
 	div1.className += "row";
@@ -33,32 +35,32 @@ function AddItem(item){
 	pNbrPizza.className +="col-2";
 
 	//add quantity
-	var quantitee = item[0];
+	var quantitee = item[1][0];
 	pNbrPizza.innerHTML = quantitee;
 
 	//add name
 	var pNamePizza = document.createElement("p");
-	pNamePizza.id = "panierNamePizza";
-	pNamePizza.className += "col-7";
-	for(var i = 0; i < item[1].length; i++){
-		if(item[1][i] == "%"){
-			item[1] = item[1].replace("%20", " ");
-			item[1] = item[1].replace("%27", "'");
-			item[1] = item[1].replace("%C3%88", "È");
-			item[1] = item[1].replace("%C3%8A", "Ê");
+	pNamePizza.className += "col-7 panierNamePizza";
+	for(var i = 0; i < item[1][1].length; i++){
+		if(item[1][1][i] == "%"){
+			item[1][1] = item[1][1].replace("%20", " ");
+			item[1][1] = item[1][1].replace("%27", "'");
+			item[1][1] = item[1][1].replace("%C3%88", "È");
+			item[1][1] = item[1][1].replace("%C3%8A", "Ê");
 		}
 	}
-	pNamePizza.innerHTML = item[1];
+	pNamePizza.innerHTML = item[1][1];
 
 	//add price
 	var pPricePizza = document.createElement("p");
-	pPricePizza.innerHTML = item[2] + "€";
+	pPricePizza.innerHTML = item[1][2] + "€";
 
 	//Add all on div1
 	div1.appendChild(pNbrPizza);
 	div1.appendChild(pNamePizza);
 	div1.appendChild(pPricePizza);
-	commande.appendChild(div1);
+	thisItem.appendChild(div1);
+	//commande.appendChild(div1);
 
 	//more info size
 	var div2 = document.createElement("div");
@@ -66,16 +68,16 @@ function AddItem(item){
 	var div2Before = document.createElement("div");
 	div2Before.className +="col-2";
 	var pSizePizza = document.createElement("p");
-	pSizePizza.id = "panierSizePizza";
-	pSizePizza.className += "col-10";
+	pSizePizza.className += "col-10 panierSizePizza";
 
 	//add size
-	pSizePizza.innerHTML = item[3];
+	pSizePizza.innerHTML = item[1][3];
 
 	//Add all on div2
 	div2.appendChild(div2Before);
 	div2.appendChild(pSizePizza);
-	commande.appendChild(div2);
+	thisItem.appendChild(div2);
+	//commande.appendChild(div2);
 
 	if(item.length > 4){
 		//more info base
@@ -84,16 +86,17 @@ function AddItem(item){
 		var div3Before = document.createElement("div");
 		div3Before.className +="col-2";
 		var pBasePizza = document.createElement("p");
-		pBasePizza.id = "panierBasePizza";
-		pBasePizza.className += "col-10";
+		pBasePizza.className += "col-10 panierBasePizza";
 		//add base
-		pBasePizza.innerHTML = item[4];
+		pBasePizza.innerHTML = item[1][4];
 
 		div3.appendChild(div3Before);
 		div3.appendChild(pBasePizza);
-		commande.appendChild(div3);
+		thisItem.appendChild(div3);
+		//commande.appendChild(div3);
 	}
 
+	commande.appendChild(thisItem);
 	var totalPanier = document.getElementById("PanierTotal");
 
 	var pTotalWord = document.createElement("p");
@@ -109,20 +112,29 @@ function AddItem(item){
 	panierTotalPrice.innerHTML = parseFloat(panierTotalPrice.innerHTML) + parseFloat(pTotalPrice.innerHTML) + "€";
 
 }
-
 function SeeItem(){
 	var i = 4;
 	var panier = document.getElementById("PanierItems");
 	while(parameters[i]){
-		var item = parameters[i].split("|");
-		console.log(item);
+		var item = parameters[i].split("=");
+		console.log("this item ----------------------------> " + item);
+
+		item[1] = item[1].split("|");
+		console.log("this id item --> " + item[0]);
+		console.log("this quantity item --> " + item[1][0]);
+		console.log("this name item --> " + item[1][1]);
+		console.log("this price item --> " + item[1][2]);
+		console.log("this size item --> " + item[1][3]);
+		console.log("this base item --> " + item[1][4]);
+		console.log("________________\n\n");
 
 		AddItem(item);
 		i++;
 	}
 }
-SeeItem();
-
+function removeElement(elementId){
+	parameters.delete(elementId);
+}
 function SeeAddress(ville, numRue, rue){
 	for (var i = 0; i < rue.length; i++) {
 		if(rue[i] == '+'){
@@ -138,17 +150,6 @@ function SeeAddress(ville, numRue, rue){
 	var livrable = document.getElementById("numRueRueVille");
 	livrable.innerHTML = numRue + " " + rue + " " + ville;
 }
-
-
-var ville = Ville();
-var numRue = NumRue();
-var rue = Rue();
-var scale = Scale();
-SeeAddress(ville, numRue, rue);
-
-
-
-
 /* Use that when navBar is used*/
 function navBar(){
 	if(document.getElementById("pNbrue") != null){
@@ -168,9 +169,6 @@ function navBar(){
 		document.getElementById("bscales").value = scale;
 	}
 }
-navBar();
-
-
 function nextPage(){
 	/*
 	document.getElementById("lNbrue").value = numRue;
@@ -182,4 +180,14 @@ function nextPage(){
 		document.getElementById("panierNbrPizza").value = panierNbrPizza;
 	}
 }
+
+var ville = Ville();
+var numRue = NumRue();
+var rue = Rue();
+var scale = Scale();
+SeeAddress(ville, numRue, rue);
+SeeItem();
+
+navBar();
+
 nextPage();

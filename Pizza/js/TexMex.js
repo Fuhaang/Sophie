@@ -67,7 +67,7 @@ for (var i = 0; i < texMex.length; i++) {
 	var sizeTexMex = document.createElement("select");
 	sizeTexMex.name ="size";
 	sizeTexMex.className +="listbox row";
-	sizeTexMex.id = "size" + i;
+	sizeTexMex.id = "sizeTex" + i;
 	//Option size Medium
 	var optionMedium = document.createElement("option");
 	optionMedium.setAttribute("value", "piece4");
@@ -97,7 +97,7 @@ for (var i = 0; i < texMex.length; i++) {
 	divQuantity.className+="row";
 	var quantityTexMex = document.createElement("select");
 	quantityTexMex.name="quantity";
-	quantityTexMex.id= "quantity" + i;
+	quantityTexMex.id= "quantityTex" + i;
 	quantityTexMex.className +="listboxQuant";
 	quantityTexMex.setAttribute("onchange", "changePrice(" + i + ")");
 	//Option number 0
@@ -135,7 +135,7 @@ for (var i = 0; i < texMex.length; i++) {
 	/*-------PRICE-------*/
 	var price = document.createElement("p");
 	price.className +="pizzaPrice col-5";
-	price.id = "price" + i;
+	price.id = "priceTex" + i;
 	price.innerHTML = texMex[i].price * quantityTexMex.value + "€";//€
 	divQuantity.appendChild(price);
 	thistex.appendChild(divQuantity);
@@ -145,7 +145,7 @@ for (var i = 0; i < texMex.length; i++) {
 	divRowAjouter.className +="row";
 	var buttonAjouter = document.createElement("button");
 	buttonAjouter.className +="addThisPizza col-8";
-	buttonAjouter.id = "addThisPizza" + i;
+	buttonAjouter.id = "addThisTex" + i;
 	buttonAjouter.innerHTML = "AJOUTER";
 	buttonAjouter.setAttribute("onclick", "Add(" + i + ")");
 	divRowAjouter.appendChild(buttonAjouter);
@@ -161,43 +161,85 @@ for (var i = 0; i < texMex.length; i++) {
 
 //EVENT CHANGE NUMBER OF PIZZA (CHANGE PRICE)
 function changePrice(i){
-	var nbr = document.getElementById("quantity" + i).value;
+	var nbr = document.getElementById("quantityTex" + i).value;
 	console.log("nbr of " + i + " ===> " + nbr);
-	document.getElementById("price" + i).innerHTML = texMex[i].price * nbr + "€"; //€
+	document.getElementById("priceTex" + i).innerHTML = texMex[i].price * nbr + "€"; //€
 }
 
 
 
 function Add(i){
-	if(document.getElementById("quantity" + i).value != 0){
+	if(document.getElementById("quantityTex" + i).value != 0){
 
 		var commande = document.getElementById("PanierItems");
+		var pNbrPizza = document.createElement("p");
+		var quantitee = document.getElementById("quantityTex" + i).value;
+
+		var pPricePizza = document.getElementById("panierPriceTex" + i);
+
+		var existName = document.getElementById("panierNameTex" + i);
+		var existSize = document.getElementById("panierSizeTex" + i);
+		var taille = document.getElementById("sizeTex" + i).value;
+
+		if(existName && existSize && taille == existSize.innerHTML){
+			var oldPrice = pPricePizza.innerHTML;
+
+			pNbrPizza = document.getElementById("panierNbrTex" + i);
+			pNbrPizza.innerHTML = pNbrPizza.innerHTML.split("x")[0];
+
+			//var floatUnitPrice = parseFloat(pPricePizza.innerHTML) * 100
+			//var intUnitPrice = parseInt(pPricePizza.innerHTML) * 100
+
+			var unitPrice = parseInt(pPricePizza.innerHTML) / parseInt(pNbrPizza.innerHTML);
+			var newQuantity = parseInt(pNbrPizza.innerHTML) + parseInt(quantitee);
+
+			pNbrPizza.innerHTML = newQuantity + "x";
+
+			var totalPanier = document.getElementById("PanierTotal");
+
+			var pTotalWord = document.createElement("p");
+			pTotalWord.id = "panierTotalWord";
+			pTotalWord.innerHTML = "TOTAL";
+
+			var pTotalPrice = document.createElement("p");
+			pTotalPrice.className +="col-6";
+			pTotalPrice.id = "panierTotalPrice";
+
+			pPricePizza.innerHTML = (unitPrice * newQuantity) + "€";
+			pTotalPrice.innerHTML += parseInt(pPricePizza.innerHTML);
+
+			panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) - parseInt(oldPrice) + "€";
+
+		}
+		else{
+
+
 		var monTexMex = new TexMexPanier();
 
 
 		var div1 = document.createElement("div");
 		div1.className += "row";
 
-		var pNbrPizza = document.createElement("p");
-		pNbrPizza.id = "panierNbrPizza";
-		pNbrPizza.className += "col-2";
+		pNbrPizza.id = "panierNbrTex" + i;
+		pNbrPizza.className += "col-2 panierNbrPizza";
 		//add quantity
-		var quantitee = document.getElementById("quantity" + i).value + "x";
+		quantitee += "x";
 		pNbrPizza.innerHTML = quantitee;
 		monTexMex.quantitee = quantitee;
 
 		var pNamePizza = document.createElement("p");
-		pNamePizza.id = "panierNamePizza";
-		pNamePizza.className += "col-7";
+		pNamePizza.id = "panierNameTex" + i;
+		pNamePizza.className += "col-7 panierNamePizza";
 		//add name
 		var nom = texMex[i].name;
 		pNamePizza.innerHTML = nom;
 		monTexMex.nom = nom;
 
 		var pPricePizza = document.createElement("p");
-		pPricePizza.id = "panierPricePizza";
+		pPricePizza.id = "panierPriceTex" + i;
+		pPricePizza.className +="panierPricePizza";
 		//add price
-		var prix = document.getElementById("quantity" + i).value * texMex[i].price;//€
+		var prix = document.getElementById("quantityTex" + i).value * texMex[i].price;//€
 		pPricePizza.innerHTML = prix + "€";
 		monTexMex.prix = prix;
 
@@ -212,10 +254,10 @@ function Add(i){
 		var div2Before = document.createElement("div");
 		div2Before.className +="col-2";
 		var psizeTexMex = document.createElement("p");
-		psizeTexMex.id = "paniersizeTexMex";
-		psizeTexMex.className += "col-10";
+		psizeTexMex.id = "panierSizeTex" + i;
+		psizeTexMex.className += "col-10 panierSizePizza";
 		//add size
-		var taille = document.getElementById("size" + i).value;
+		var taille = document.getElementById("sizeTex" + i).value;
 		psizeTexMex.innerHTML = taille;
 		monTexMex.taille = taille;
 		
@@ -238,7 +280,8 @@ function Add(i){
 		pTotalPrice.id = "panierTotalPrice";
 		pTotalPrice.innerHTML += pPricePizza.innerHTML;
 
-		panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) + "€";
+		panierTotalPrice.innerHTML = parseFloat(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) + "€";
+		}
 	}
 }
 
@@ -248,11 +291,15 @@ function dynamicNextPage(){
 	var ville = document.getElementById("lville").value;
 	var scale = document.getElementById("lscales").value;
 
+	var parameters =  location.search.substring(1).split("&");
+	console.log("Donne le nombre de parametres --> " + parameters.length);
+	idItem = parameters.length - 4;
+
 	//quantitee, nom, prix, taille
 	var urlPanier = "";
-	for (var i = 0; i < monPanier.length; i++) {
-		urlPanier +="&" + monPanier[i].quantitee + "|" + monPanier[i].nom + "|"
-		+ monPanier[i].prix + "|" + monPanier[i].taille;
+	for (var i = idItem; i < monPanier.length + idItem; i++) {
+		urlPanier +="&item" + i + "=" + monPanier[i - idItem].quantitee + "|" + monPanier[i - idItem].nom + "|"
+		+ monPanier[i - idItem].prix + "|" + monPanier[i - idItem].taille;
 	}
 	console.log("urlPanier --->" + urlPanier);
 
@@ -262,11 +309,15 @@ function dynamicNextPage(){
 }
 
 function dynamicPreviousPage(){
+	var parameters =  location.search.substring(1).split("&");
+	console.log("Donne le nombre de parametres --> " + parameters.length);
+	idItem = parameters.length - 4;
 	var urlPanier = "";
-	for (var i = 0; i < monPanier.length; i++) {
-		urlPanier +="&" + monPanier[i].quantitee + "|" + monPanier[i].nom + "|"
-		+ monPanier[i].prix + "|" + monPanier[i].taille;
+	for (var i = idItem; i < monPanier.length + idItem; i++) {
+		urlPanier +="&item" + i + "=" + monPanier[i - idItem].quantitee + "|" + monPanier[i - idItem].nom + "|"
+		+ monPanier[i - idItem].prix + "|" + monPanier[i - idItem].taille;
 	}
+	console.log("urlPanier --->" + urlPanier);
 	window.location.href = "ChoicePizza.html" + window.location.search + urlPanier;
 }
 
