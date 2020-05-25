@@ -132,9 +132,6 @@ function SeeItem(){
 		i++;
 	}
 }
-function removeElement(elementId){
-	parameters.delete(elementId);
-}
 function SeeAddress(ville, numRue, rue){
 	for (var i = 0; i < rue.length; i++) {
 		if(rue[i] == '+'){
