@@ -46,6 +46,9 @@ header{
 }
 
 .mainPage{
+	font-size: 45px;
+	width: 400px;
+	border-radius: 50px;
 }
 #bye{
 	text-align: center;
@@ -65,11 +68,13 @@ header{
 }
 #pizzaPresentation{
 	background-image: url("../images/images/Accueil.jpg");
-	padding-top: 250px;
+	padding-top: 170px;
+	padding-left: 50px;
 	height: 600px;
 }
 .livrEmport{
 	text-align: right;
+	margin-left: 15px;
 }
 button{
 	border-radius: 15px;
@@ -77,10 +82,11 @@ button{
 
 #OU{
 	text-align: right;
-	margin-right: 70px;
-	margin-top: 15px;
+	margin-right: 175px;
+	margin-top: 30px;
 	color :white;
 	font-weight: bold;
+	font-size: 40px;
 }
 #aEmporter{
 	margin-left: 15px;
