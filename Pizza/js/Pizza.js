@@ -15,7 +15,8 @@ function Pizza(picture, name, ingredients, size, base, price){
 	this.price = price;
 }
 //quantitee, nom, prix, taille, labase
-function PizzaPanier(quantitee, nom, prix, taille, labase){
+function PizzaPanier(id, quantitee, nom, prix, taille, labase){
+	this.id = id;
 	this.quantitee = quantitee;
 	this.nom = nom;
 	this.prix = prix;
@@ -311,6 +312,10 @@ function Add(j, i){
 		var existBase = document.getElementById(j + "panierBasePizza" + i);
 		var taille = document.getElementById(j + "size" + i).value;
 
+		nameTest = document.getElementById(j + "panierNamePizza" + i);
+
+		var newQuantity;
+
 		 console.log(existName + "   " + existSize + "   " + existBase);
 		if(existName && existSize && existBase && taille == existSize.innerHTML){
 			console.log("Prix total pour les x mêmes pizza " + pPricePizza.innerHTML);
@@ -327,8 +332,9 @@ function Add(j, i){
 			console.log("Prix unitaire de cette pizza -> " + unitPrice);
 
 			//Nouvelle quantitée de cette pizza
-			var newQuantity = parseInt(pNbrPizza.innerHTML) + parseInt(quantitee);
+			newQuantity = parseInt(pNbrPizza.innerHTML) + parseInt(quantitee);
 			console.log("Nouvelle quantitée --> " + newQuantity);
+
 
 			//On met dans la vue cette quantité
 			pNbrPizza.innerHTML = newQuantity + "x";
@@ -355,7 +361,16 @@ function Add(j, i){
 
 
 			panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) - parseInt(oldPrice) + "€";
-
+		
+			var idItem = parameters.length - 4;
+			for (var i = idItem; i < monPanier.length + idItem; i++) {
+				console.log(monPanier[i - idItem].nom + " = " + existName.innerHTML);
+				if(monPanier[i - idItem].nom == existName.innerHTML){
+					console.log("OKOKOK")
+					monPanier[i - idItem].quantitee = newQuantity + "x";
+					monPanier[i - idItem].prix = pTotalPrice.innerHTML;
+				}
+			}
 		}
 		else{
 
@@ -465,6 +480,11 @@ function dynamicNextPage(){
 
 	//quantitee, nom, prix, taille, labase
 	var urlPanier = "";
+
+	console.log("UUUUUUUUUUUU" + nameTest);
+
+		
+
 	for (var i = idItem; i < monPanier.length + idItem; i++) {
 		urlPanier +="&item" + i + "=" + monPanier[i - idItem].quantitee + "|" + monPanier[i - idItem].nom + "|"
 		+ monPanier[i - idItem].prix + "|" + monPanier[i - idItem].taille + "|" + monPanier[i - idItem].labase;

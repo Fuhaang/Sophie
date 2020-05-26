@@ -212,6 +212,16 @@ function Add(i){
 			pTotalPrice.innerHTML += parseInt(parseFloat(pPricePizza.innerHTML)*100) / 100;
 
 			panierTotalPrice.innerHTML = parseFloat(parseInt(parseFloat(panierTotalPrice.innerHTML)*100) + parseInt(parseFloat(pTotalPrice.innerHTML)*100) - parseInt(parseFloat(oldPrice)*100)) / 100 + "€";
+		
+			var idItem = parameters.length - 4;
+			for (var i = idItem; i < monPanier.length + idItem; i++) {
+				console.log(monPanier[i - idItem].nom + " = " + existName.innerHTML);
+				if(monPanier[i - idItem].nom == existName.innerHTML){
+					console.log("OKOKOK")
+					monPanier[i - idItem].quantitee = newQuantity + "x";
+					monPanier[i - idItem].prix = pTotalPrice.innerHTML;
+				}
+			}
 		}
 		else{
 

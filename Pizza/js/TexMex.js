@@ -210,6 +210,16 @@ function Add(i){
 
 			panierTotalPrice.innerHTML = parseInt(panierTotalPrice.innerHTML) + parseInt(pTotalPrice.innerHTML) - parseInt(oldPrice) + "€";
 
+
+			var idItem = parameters.length - 4;
+			for (var i = idItem; i < monPanier.length + idItem; i++) {
+				console.log(monPanier[i - idItem].nom + " = " + existName.innerHTML);
+				if(monPanier[i - idItem].nom == existName.innerHTML){
+					console.log("OKOKOK")
+					monPanier[i - idItem].quantitee = newQuantity + "x";
+					monPanier[i - idItem].prix = pTotalPrice.innerHTML;
+				}
+			}
 		}
 		else{
 

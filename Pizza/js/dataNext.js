@@ -79,7 +79,7 @@ function AddItem(item){
 	thisItem.appendChild(div2);
 	//commande.appendChild(div2);
 
-	if(item.length > 4){
+	if(item[1].length > 4){
 		//more info base
 		var div3 = document.createElement("div");
 		div3.className +="row";

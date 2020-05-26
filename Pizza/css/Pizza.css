@@ -34,14 +34,16 @@ body {
 header{
 	height: 50px;
 	margin-top: 10px;
-	text-align: center;
+	text-align: left;
 	margin-bottom: 10px;
 }
-.headerstandard a button img{
+.headerstandard button img{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 40px;
+	height: 300px;
+	margin-top: -60px;
+	margin-left: -60px;
 	width: auto;
 }
 
@@ -67,6 +69,20 @@ header{
 .container-fluid{
 	margin: 0px;
 	padding: 0px;
+}
+.logo{
+	background: rgba(0,0,0,0.7);
+	border-color: transparent;
+	border-radius: 0px;
+	width: 100%;
+	height: 170px;
+	margin-left: -16px;
+	margin-top: -16px;
+	position: absolute;
+}
+.imgLogo{
+	height: auto;
+	width: 400px;
 }
 #pizzaPresentation{
 	background-image: url("../images/images/Accueil.jpg");
