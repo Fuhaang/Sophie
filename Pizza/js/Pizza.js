@@ -481,7 +481,6 @@ function dynamicNextPage(){
 	//quantitee, nom, prix, taille, labase
 	var urlPanier = "";
 
-	console.log("UUUUUUUUUUUU" + nameTest);
 
 		
 
